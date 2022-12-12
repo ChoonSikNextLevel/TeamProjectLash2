@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lash</groupId>
-	<artifactId>lash.clone</artifactId>
+	<artifactId>lash_clone</artifactId>
 	<version>1.0.0</version>
-	<name>lash.clone</name>
+	<name>lash_clone</name>
 	<description>lashClone Project</description>
 	<properties>
 		<java.version>11</java.version>
