@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/static/js/page_main/js/jquery.nicescroll.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/page_main/index.css">
+    <link rel="stylesheet" href="/static/css/page_main/fragment/aside.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
+    
+    <title>LASH 래쉬 | 안경태</title>
+
+</head>
+
+<body>
+    <!-- 여기서부터 카피 -->
+    <div class="overlay"></div>
+
+    <header th:replace="~{fragment/header :: header}"></header>
+
+    <!-- contents -->
+    <div id="contents">
+        <div class="main-container">
+            <div class="banner">
+                <img src="/static/images/Logo_img/mainImg.png" alt="">
+            </div>
+            <div class="main-text">MODERN UNIFORM</div>
+            <!-- 슬라이드 -->
+            <section>
+                <div class="slide-container">
+                    <li>
+                        <div class="content-row">
+                            <a href="/templates/page_campaign/campaign_lookbook10.html">
+                                <img src="/static/images/Logo_img/slide01.jpg">
+                            </a>
+                            <div class="content-title">
+                                <span>
+                                    <p>Refined</p>
+                                    2022 lash Refined
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="content-row">
+                            <img src="/static/images/Logo_img/slide02.jpg">
+                            <div class="content-title">
+                                <span>
+                                    <p>lookbook</p>
+                                    Retrospect 'Portrait'
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="content-row">
+                            <img src="/static/images/Logo_img/slide03.jpg">
+                            <div class="content-title">
+                                <span>
+                                    <p>lookbook</p>
+                                    2022 VINTAGE EDITION 'Lee Dong Hwi'
+                                    <br>LOOKBOOK
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="content-row">
+                            <img src="/static/images/Logo_img/slide04.jpg">
+                            <div class="content-title">
+                                <span>
+                                    <p>lookbook</p>
+                                    2022 VINTAGE 2ND BIKE LOOKBOOK
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="content-row">
+                            <img src="/static/images/Logo_img/slide05.jpg">
+                            <div class="content-title">
+                                <span>
+                                    <p>Collection</p>
+                                    2022S/S COLLECTION 'MODERN UNIFORM'
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="content-row">
+                            <img src="/static/images/Logo_img/slide06.jpg">
+                            <div class="content-title">
+                                <span>
+                                    <p>Refined</p>
+                                    lash 2021 SPECIAL EDITION 'Refined'
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="content-row">
+                            <img src="/static/images/Logo_img/slide07.jpg">
+                            <div class="content-title">
+                                <span>
+                                    FOLLOW US
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!--    footer   -->
+    <footer id="footer" class="footer">
+        <div class="footer-sections">
+            <div class="footer-section-01">
+                <div class="footer-section-01-1">
+                    <img src="/static/images/Logo_img/footer_logo.png" alt="">
+                </div>
+                <div class="footer-section-01-2">
+                    <p>Instagram을 팔로우하시면 신상품과 트렌드에 대한 소식을 받으실 수 있습니다.</p>
+                    <a href="https://www.instagram.com/lasheyewear_official/">팔로우하기</a>
+                </div>
+            </div>
+            <div class="footer-section-02">
+                <a href="https://www.facebook.com/lasheyewearofficial"><img
+                        src="/static/images/Logo_img/footer_facebook.png" alt=""></a>
+                <a href="https://www.instagram.com/lasheyewear_official/"><img
+                        src="/static/images/Logo_img/footer_instagram.png" alt=""></a>
+                <a href="https://www.pinterest.co.kr/lasheyewear/"><img
+                        src="/static/images/Logo_img/footer_pinterest.png" alt=""></a>
+            </div>
+            <div class="footer-section-03">빅스타아이엔지 주식회사 | 서울시 성동구 성수이로 7길 7 209호 | 사업자등록번호: 220-88-60430 | 통신판매번호:
+                제2017-서울성동-0524호 | 대표자: 김대성 | 고객센터번호:
+                02-557-4164 | 이메일: cs@lasheyewear.com</div>
+            <div class="footer-section-04">
+                호스팅서비스 사업자: Cafe24
+            </div>
+        </div>
+    </footer>
+    <!-- <script src="/static/js/header.js"></script> -->
+
+    <script type="text/javascript">
+        $(document).ready(
+
+            function () {
+                $(".slide-container").niceScroll({
+                    cursorcolor: "rgb(83, 82, 82)",
+                    cursorwidth: 0,
+                    cursoropacitymin: 0,
+                    scrollspeed: 100,
+                    cursorborderradius: '0',
+                    mousescrollstep: 40,
+                    horizrailenabled: true,
+                    cursoropacitymin: 0,
+                    cursoropacitymax: 0,
+                    background: "#eee",
+                    cursorborder: "none",
+                    autohidemode: true,
+                    boxzoom: false,
+                    zindex: 99999
+
+                });
+            }
+        );
+    </script>
+
+
+</body>
+
+</html>

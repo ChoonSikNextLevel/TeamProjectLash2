@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lash.lashClone.repository.admin.OrderManagementRepository">
+
+
+    <select id="getOrder" resultType="com.lash.lashClone.domain.Order">
+        SELECT
+        mm.member_id,
+
+        om.member_id,
+        om.product_id,
+
+        pm.product_id,
+
+        om.order_date,
+        pm.name,
+        pm.color_code,
+        om.product_count,
+
+        pm.price,
+
+        om.re_address,
+        om.re_address_detail,
+        om.status,
+        om.order_id
+
+        FROM
+            member_mst mm
+            LEFT OUTER JOIN order_mst om
+            ON(mm.member_id = om.member_id)
+            LEFT OUTER JOIN product_mst pm
+            ON(om.product_id = pm.product_id)
+
+        WHERE
+            om.member_id = mm.member_id
+        <if test='status != "all"'>
+            and om.status = #{status}
+        </if>
+        <if test="history_start_date != '' || history_end_date != ''">
+            AND om.order_date BETWEEN #{history_start_date} AND #{history_end_date}
+        </if>
+
+        order by om.order_date DESC
+
+    </select>
+
+    <update id="updateStatus">
+        UPDATE
+            order_mst
+        SET
+            status = #{status}
+
+        WHERE
+            order_id = #{order_id}
+            and
+            product_id = #{product_id};
+
+
+    </update>
+</mapper>

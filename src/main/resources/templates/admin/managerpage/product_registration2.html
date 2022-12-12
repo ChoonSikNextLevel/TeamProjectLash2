@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/admin/manager/style.css">
+    <link rel="stylesheet" href="/static/css/admin/manager/product_change_storage.css">
+    
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
+    
+    <title>product_registration</title>
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <header th:replace="~{fragment/header :: header}"></header>
+
+    <div class="contents">
+        <div class="titleArea">
+            <h2>product_registration</h2>
+        </div>
+        <ul class="sideMenu">
+            <h2>Admin</h2>
+            <li><a href="/admin/product/registration">상품등록</a></li>
+            <li><a href="/admin/products">상품관리</a></li>
+            <li><a href="/admin/order/managerpage">주문배송</a></li>
+        </ul>
+        <div class="registration-area">
+            <div class="registration-container">
+                <form class="registration-form" action="" method="post">
+                    <div class="ec-base-table-black typeWrite">
+                        <table border="1" summary>
+                            <colgroup>
+                                <col style="width:150px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">category
+                                    </th>
+                                    <td>
+                                        <select id="phone1">
+                                            <option value="choose">선택</option>
+                                            <option value="metal">Metal</option>
+                                            <option value="acetate">Acetate</option>
+                                            <option value="combination">Combination</option>
+                                            <option value="refined">Refined</option>
+                                            <option value="vintage">Vintage</option>
+                                            <option value="sunglasses">Sunglasses</option>
+                                            <option value="acc">Acc</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">name
+                                    </th>
+                                    <td>
+                                        <input id="member_name" class="inputTypeText" type="text">
+                                    </td>
+                                    <th scope="row">price
+                                    </th>
+                                    <td>
+                                        <input id="member_price" class="inputTypeText" type="text">
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <th scope="row">color_code
+                                    </th>
+                                    <td>
+                                        <input id="member_color_code" class="inputTypeText" "type=" text">
+                                    </td>
+                                    <th>color
+                                    </th>
+                                    <td>
+                                        <input id="member_color" class="inputTypeText" value="" type="text">
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+                        <table border="1" summary>
+                            <colgroup>
+                                <col style="width:150px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        product_features
+                                    </th>
+                                    <td>
+                                        <textarea class="product-features-ex" placeholder="상세설명"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        description
+                                    </th>
+                                    <td>
+                                        <textarea class="product-features-ex" placeholder="상세설명"></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        return policy
+                                    </th>
+                                    <td>
+                                        <textarea class="product-features-ex" placeholder="고정">
+1) 배송 지역 : 전국 (도서산간지역 포함)
+2) 배송 운임 : 기본 무료 배송 (도서산간지역의 경우 추가 배송비가 부과됩니다.)
+3) 배송 기간 : 결제일 기준 2~4일 (영업일 기준이며, 택배사 사정에 의해 지연이 될 수 있습니다.)
+4) 해외 배송 기간 : 결제일 기준 4~10일 (영업일 기준이며, 택배사 사정에 의해 지연이 될 수 있습니다.)
+                                        </textarea>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <div class="container-fluid">
+                            <!-- <h3>Sort Files before upload</h3> -->
+                            <br />
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label for="upload">
+                                        ( ˵•́ ᴗ •̀˵)사진추가(˵•́ᴗ •̀˵ )
+                                    </label>
+                                </div>
+                                <input type="file" name="upload" multiple="multiple"
+                                    class="form-control user_picked_files" />
+
+
+                                <!-- <div class = "form-group cvf_order">                           
+                                    <label>Order</label>                               
+                                    <input type = "text" class = "form-control cvf_hidden_field" value = "" disabled = "disabled" />   
+                                </div>                      -->
+
+                                <!-- <input type = "submit" class = "cvf_upload_btn btn btn-primary" value = "Upload" /> -->
+
+                                <ul class="cvf_uploaded_files"></ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="registration-button-area">
+                        <button class="registration-button">등록</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+        <script src="/static/js/admin/product_change_storage.js"></script>
+</body>
+
+</html>

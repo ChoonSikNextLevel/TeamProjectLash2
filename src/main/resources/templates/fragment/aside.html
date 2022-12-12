@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/static/css/page_main/fragment/aside.css">
+</head>
+<body>
+    <aside th:fragment="aside">
+        <span sec:authorize="hasRole('ROLE_USER')">
+            <button class="site-header-button"><a href="account/login">Log out</a></button>
+        </span>            
+    </aside>
+    
+</body>
+</html>

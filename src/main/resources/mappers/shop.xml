@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lash.lashClone.repository.shop.ShopRepository">
+
+    <resultMap id="product_imgs" type="com.lash.lashClone.domain.ProductImg">
+        <result property="id" column="img_id"></result>
+        <result property="product_id" column="product_id"></result>
+        <result property="img_name" column="img_name"></result>
+    </resultMap>
+
+    <resultMap id="product_details" type="com.lash.lashClone.domain.ProductDetail">
+        <result property="product_id" column="product_id"></result>
+        <result property="name" column="name"></result>
+        <result property="color_code" column="color_code"></result>
+        <result property="color" column="color"></result>
+        <result property="price" column="price"></result>
+        <result property="product_features" column="product_features"></result>
+        <result property="description" column="description"></result>
+        <collection property="product_imgs" javaType="list" resultMap="product_imgs"></collection>
+    </resultMap>
+
+    <select id="getProductCollection"
+            parameterType="string"
+            resultType="com.lash.lashClone.domain.ProductCollection">
+
+        SELECT
+            pm.product_id,
+            pm.category,
+            pm.name,
+            pm.color_code,
+            pm.color,
+            pm.price,
+            pimg.img_name,
+            pimg.id
+        FROM
+            product_mst pm
+            LEFT OUTER JOIN product_img pimg ON(pimg.product_id = pm.product_id)
+        WHERE
+            1 = 1
+            <if test='category != "all"'>
+                and pm.category = #{category}
+            </if>
+            GROUP BY
+                pm.name, pm.color_code
+
+    </select>
+
+    <select id="getProduct" resultMap="product_details" parameterType="string">
+        SELECT
+            pm.product_id,
+            pm.color,
+            pm.name,
+            pm.color_code,
+            pm.price,
+            pm.product_features,
+            pm.description,
+            pimg.img_name,
+            pimg.id
+        FROM
+            product_mst pm
+        LEFT OUTER JOIN product_img pimg ON(pimg.product_id = pm.product_id)
+        WHERE
+            pm.name = #{name}
+    </select>
+
+    <insert id="addToBag" parameterType="hashmap">
+        insert
+        into cart_items
+        values (
+        (
+        select
+        cm.cart_id
+        from
+        cart_mst cm
+        where
+        cm.member_id = (
+        SELECT
+        mm.member_id
+        FROM
+        member_mst mm
+        WHERE
+        mm.username = #{username}
+        )
+        ),
+        (
+        select
+        pm.product_id
+        from
+        product_mst pm
+        where
+        pm.name = #{name}
+        and
+        pm.color_code = #{colorCode}
+        ),
+        1
+        );
+
+    </insert>
+
+    <update id="updateCount" parameterType="hashmap">
+        update
+        cart_items
+        set
+        product_count = product_count + 1
+        where
+        cart_id = (
+        select
+        cm.cart_id
+        from
+        cart_mst cm
+        where
+        cm.member_id = (
+        SELECT
+        mm.member_id
+        FROM
+        member_mst mm
+        WHERE
+        mm.username = #{username}
+        )
+        and
+        product_id = (
+        select
+        pm.product_id
+        from
+        product_mst pm
+        where
+        pm.name = #{name}
+        and
+        pm.color_code = #{colorCode}
+        ));
+    </update>
+
+    <select id="checkCart" resultType="java.util.Map">
+        SELECT
+        ci.cart_id,
+        ci.product_id
+        FROM
+        cart_items ci
+        WHERE ci.cart_id = ( SELECT
+        mm.member_id
+        FROM
+        member_mst mm
+        WHERE
+        mm.username = #{username}
+        ) and
+        ci.product_id = (select
+        pm.product_id
+        from
+        product_mst pm
+        where
+        pm.name = #{name}
+        and
+        pm.color_code = #{colorCode}
+        )
+
+    </select>
+
+</mapper>

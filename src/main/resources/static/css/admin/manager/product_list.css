@@ -1,0 +1,175 @@
+/* ------기본설정값--- */
+.contents {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+    min-height: 800px;
+    margin-top: 60px;
+    padding-bottom: 0px;
+
+}
+
+.titleArea {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.titleArea h2 {  
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 20px;
+}
+/* 상품등록 크기및 설정 */
+
+.list-area {
+    width: 1000px;
+    margin: 0px auto;
+    font-size: 12px;
+}
+.list-container {
+    position: relative;
+    display: block;
+    float: left;
+
+    width: 100%;
+    
+    border: 1px solid #999;
+    border-radius: 5px;
+
+    padding: 30px;
+}
+
+
+
+
+/*---------------------------사이드바--------------------------------------------------------------------*/
+.sideMenu {position:fixed; top:135px; left:2.5%; width:10%; float:Left; background:none; }
+.sideMenu h2 {font-size:14px; font-weight:500; margin-bottom:20px;}
+.sideMenu ul {width:100%; float:left; }
+.sideMenu li {width:100%; float:left; margin-bottom:16.45px;}
+.sideMenu a {width:100%; float:left; font-size:12.5px; font-weight:400; letter-spacing:-0.01px }
+.sideMenu a:hover {text-decoration:underline}
+    
+@media screen and (max-width: 1280px) {
+.sideMenu {width:100%; float:none; text-align:center; position:static; top:0; left:0;}
+.sideMenu ul {text-align:center;}
+.sideMenu li {float:none; display:inline-block; width:auto; margin-right:8px;}
+.sideMenu a {float:none;}
+.sideMenu a:hover {text-decoration:underline}
+}
+/* --------상품목록 리스트----------- */
+/* 테이블 기본 설정 */
+.col-th {
+    margin-top: 30px;
+}
+table {
+    
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+colgroup {
+    display: table-column-group;
+}
+form {
+    position: relative;
+}
+input[type="hidden" i] {
+    appearance: none;
+    background-color: initial;
+    cursor: default;
+    display: none !important;
+    padding: initial;
+    border: initial;
+}
+.btnType-1 {
+    position: relative;
+    z-index: 100;
+    font-size: 10px;
+    padding: 3px 10px;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    color: #777;
+
+    cursor: pointer;
+}
+img {
+    width: 120px;
+    height: 120px;
+}
+
+/* 테이블 모양 */
+.ec-base-table table {
+    position: relative;
+    border: 1px solid #d7d5d5;
+    border-top-color: #fff;
+    color: #fff;
+    line-height: 1.5;
+}
+
+/* 목록 이름 */
+.ec-base-table thead th {
+    padding: 11px 0 10px;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    color: #353535;
+    vertical-align: middle;
+    font-weight: normal;
+    font-size: 15px;
+}
+/* 목록 정보설정 */
+.ec-base-table.typeList table {
+    border-top-color: #d7d5d5;
+}
+
+.ec-base-table .center {
+    text-align: center;
+}
+.ec-base-table.typeList td {
+    padding: 8px 10px 7px;
+    font-size: 20px;
+}
+.ec-base-table td {
+    padding: 11px 10px 10px;
+    border-top: 1px solid #ddd;
+    color: #353535;
+    vertical-align: middle;
+    background: #fff;
+}
+
+/* =======================search============================= */
+.search-area .search-box2{
+    width: 100%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-input{
+border: none;
+background: #e4ccb1;
+padding: 6px;
+font-size: 15px;
+font-weight: 700;
+width: 60%;
+border-radius: 3px;
+color: rgb(0, 0, 0);
+}
+
+.search-input, .category-select:focus{
+border: 1px solid rgb(158, 158, 158);
+}
+
+.category-select {
+    width: 15%;
+    height: 30px;
+    font-size: 15px;
+}
+

@@ -1,0 +1,58 @@
+img {
+    cursor: pointer;
+}
+
+img > .none {
+    cursor: none;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+    
+    position: absolute;
+    top: 58px;
+
+    padding: 0.3%;
+
+}
+
+.content-container {
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-container li {
+    width: 25%;
+}
+
+.content-row {
+    padding: 3px 4px;
+    position: relative;
+}
+
+.content-container li:last-child {
+    padding-right: px;
+}
+
+.content-row img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.content-title {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.3rem;
+    
+    color: white;
+
+    font-family: 'Nanum Myeongjo', serif;
+    line-height: 30px;
+
+    font-size: 22px;
+    font-weight: 800;
+    cursor: pointer;
+}

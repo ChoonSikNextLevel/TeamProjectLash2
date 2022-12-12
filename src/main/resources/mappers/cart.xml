@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lash.lashClone.repository.CartRepository">
+    <resultMap id="product_details" type="com.lash.lashClone.domain.Cart">
+        <result property="member_id" column="member_id"></result>
+        <result property="cart_id" column="cart_id"></result>
+        <result property="product_id" column="product_id"></result>
+        <result property="product_count" column="product_count"></result>
+        <result property="name" column="name"></result>
+        <result property="color_code" column="color_code"></result>
+        <result property="color" column="color"></result>
+        <result property="price" column="price"></result>
+    </resultMap>
+
+    <select id="getCart"
+            parameterType="string"
+            resultType="com.lash.lashClone.domain.Cart">
+        SELECT
+            cm.member_id,
+            cm.cart_id,
+            ci.product_id,
+            ci.product_count,
+            pm.name,
+            pm.color_code,
+            pm.color,
+            pm.price,
+            pm.category,
+            pimg.id,
+            pimg.img_name,
+            mm.username,
+            mm.name
+        FROM
+            cart_mst cm
+            LEFT OUTER JOIN cart_items ci
+                ON(ci.cart_id = cm.cart_id)
+            LEFT OUTER JOIN product_mst pm
+                ON(ci.product_id = pm.product_id)
+            LEFT OUTER JOIN product_img pimg
+                ON(pm.product_id = pimg.product_id)
+            LEFT OUTER JOIN member_mst mm
+                ON(cm.member_id = mm.member_id)
+        WHERE
+            mm.username = #{username}
+        GROUP BY
+            cm.member_id, cm.cart_id, pm.product_id;
+    </select>
+
+    <delete id="deleteCart" parameterType="hashmap">
+        DELETE
+        FROM
+            cart_items
+        WHERE
+            cart_id = (
+        select
+            cm.cart_id
+        from
+            cart_mst cm
+        where
+            cm.member_id = (
+            SELECT
+                mm.member_id
+            FROM
+                member_mst mm
+            WHERE
+                mm.username = #{username}
+            )
+        and
+        product_id = (
+        select
+        pm.product_id
+        from
+        product_mst pm
+        where
+        pm.name = #{name}
+        and
+        pm.color_code = #{colorCode}
+        ));
+    </delete>
+
+
+    <update id="plusCount">
+        UPDATE
+        cart_items
+        SET
+        product_count = product_count + 1
+        WHERE
+        cart_id = (
+        select
+        cm.cart_id
+        from
+        cart_mst cm
+        where
+        cm.member_id = (
+        SELECT
+        mm.member_id
+        FROM
+        member_mst mm
+        WHERE
+        mm.username = #{username}
+        )
+        and
+        product_id = (
+        select
+        pm.product_id
+        from
+        product_mst pm
+        where
+        pm.name = #{name}
+        and
+        pm.color_code = #{colorCode}
+        ));
+    </update>
+    <update id="minusCount">
+        UPDATE
+        cart_items
+        SET
+        product_count = product_count - 1
+        WHERE
+        cart_id = (
+        select
+        cm.cart_id
+        from
+        cart_mst cm
+        where
+        cm.member_id = (
+        SELECT
+        mm.member_id
+        FROM
+        member_mst mm
+        WHERE
+        mm.username = #{username}
+        )
+        and
+        product_id = (
+        select
+        pm.product_id
+        from
+        product_mst pm
+        where
+        pm.name = #{name}
+        and
+        pm.color_code = #{colorCode}
+        ));
+    </update>
+
+    <insert id="orderInfo" parameterType="com.lash.lashClone.domain.OrderVo">
+        insert into
+            order_mst
+        values
+        <foreach item="item" collection="orderItems" separator=",">
+            (
+            #{order_id},
+            #{item.product_id},
+            #{item.product_count},
+            #{item.member_id},
+            'shipped_before',
+            #{orderer},
+            #{or_address_number},
+            #{or_address},
+            #{or_address_detail},
+            #{or_mobile_phone},
+            #{or_email},
+            #{recipient},
+            #{re_address_number},
+            #{re_address},
+            #{re_address_detail},
+            #{re_mobile_phone},
+            #{message},
+            now(),
+            now()
+            )
+            </foreach>
+    </insert>
+
+    <insert id="orderOne" parameterType="com.lash.lashClone.domain.OrderVo">
+        insert into
+        order_mst
+        values
+            (
+            #{order_id},
+            #{product_id},
+            1,
+            #{member_id},
+            'shipped_before',
+            #{orderer},
+            #{or_address_number},
+            #{or_address},
+            #{or_address_detail},
+            #{or_mobile_phone},
+            #{or_email},
+            #{recipient},
+            #{re_address_number},
+            #{re_address},
+            #{re_address_detail},
+            #{re_mobile_phone},
+            #{message},
+            now(),
+            now()
+            )
+    </insert>
+
+</mapper>

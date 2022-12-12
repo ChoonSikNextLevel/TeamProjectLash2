@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/page_brand/brand-CB.css">
+    
+    
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
+    
+    <title>brand</title>
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <header th:replace="~{fragment/header :: header}"></header>
+
+    <div id="contents">
+        <div>
+            <div class="brand-page">
+                <div class="brand-bt">
+                    <div class="brand-bt2">
+                        <h2>
+                            BRAND
+                            <br>
+                            <span>LASH EYEWEAR</span>
+                        </h2>
+                        <img src="/static/images/Brand_img/Brand_img.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

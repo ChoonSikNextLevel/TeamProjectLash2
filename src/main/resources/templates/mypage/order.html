@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/mypage/order.css">
+    <link rel="stylesheet" href="/static/css/mypage/style.css">
+
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
+    
+    <!--datepicker-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <title>order</title>
+</head>
+<body>
+    <div class="overlay"></div>
+    
+    <header th:replace="~{fragment/header :: header}"></header>
+
+    <div class="contents">
+        <div class="titleArea">
+            <h2 style="margin-top: 0px;margin-bottom: 0px;">ORDER LIST</h2>
+            <!-- <h2 th:text="${order_status}"></h2>
+            <h2 th:text="${history_start_date}"></h2>
+            <h2 th:text="${history_end_date}"></h2> -->
+        </div>
+        <ul class="sideMenu">
+            <h2>Account</h2>
+            <li><a href="/account/mypage">마이쇼핑</a></li>
+            <li><a href="/account/mypage/order">주문내역조회</a></li>
+            <li><a href="/account/mypage/user">회원정보관리</a></li>
+            <li><a href="/account/mypage/address">배송주소록</a></li>
+        </ul>     
+        <div class="main-content">
+            <div class="orders">
+                <ul class="menu">
+                    <li class="order-all selected">
+                        <a href="#none">주문내역조회</a>
+                    </li>
+                </ul>
+            </div>
+
+            <form action="/account/mypage/order" method="GET" id="search-form">
+                <div class="order-history-head order-search-control">
+
+                    <fieldset class="date-select-box">
+
+                        <div class="state-select">
+                            <select id="order-status" name="order_status">
+                                <option value="all">전체 주문처리상태</option>
+                                <option value="shipped_before">결제완료</option>
+                                <option value="shipped_begin">배송중</option>
+                                <option value="shipped_complete">배송완료</option>
+                                <option value="order_cancel">취소∙교환∙반품</option>
+                                <option class="order-status-hidden" th:value="${order_status}" style="display: none;"></option>
+                            </select>
+                        </div>
+
+                        <span class="period">
+                            <a href="#none" class="btnNormal1" days="00">
+                                <img src="/static/images/btn_img/btn_date1.gif" alt="오늘">
+                            </a>
+                            <a href="#none" class="btnNormal2" days="07">
+                                <img src="/static/images/btn_img/btn_date2.gif" alt="1주일">
+                            </a>
+                            <a href="#none" class="btnNormal3" days="30">
+                                <img src="/static/images/btn_img/btn_date3.gif" alt="1개월">
+                            </a>
+                            <a href="#none" class="btnNormal4" days="90">
+                                <img src="/static/images/btn_img/btn_date4.gif" alt="3개월">
+                            </a>
+                            <a href="#none" class="btnNormal5" days="180">
+                                <img src="/static/images/btn_img/btn_date5.gif" alt="6개월">
+                            </a>
+                        </span>
+
+                        <input id="history_start_date" name="history_start_date" class="history-date date-picker"
+                            readonly="readonly" size="10" value="" type="text">
+                        <input id="history_start_date_hidden"
+                            readonly="readonly" size="10" th:value="${history_start_date}" type="hidden">
+
+                        ~
+                        <input id="history_end_date" name="history_end_date" class="history-date date-picker"
+                            readonly="readonly" size="10" value="" type="text">
+                        <input id="history_end_date_hidden"
+                            readonly="readonly" size="10" th:value="${history_end_date}" type="hidden">
+
+
+                        <input alt="조회" id="order-search-btn" type="image" src="/static/images/lash_btn/btn_search.gif"
+                            onclick="submit();">
+                    </fieldset>
+
+                    <ul>
+                        <li>기본적으로 최근 1개월간의 자료가 조회되며, 기간 검색시 지난 주문내역을 조회하실 수 있습니다.</li>
+                        <!-- <li>주문번호를 클릭하시면 해당 주문에 대한 상세내역을 확인하실 수 있습니다.</li> -->
+                    </ul>
+                </div>
+            </form>
+
+
+            <div class="order-management-table">
+                <div class="title">
+                    <h3>주문 상품 정보</h3>
+                </div>
+                <table border="1" summary>
+
+                    <colgroup>
+                        <col style="width:135px;">
+                        <col style="width:93px;">
+                        <col style="width:95px;">
+                        <col style="width:61px;">
+                        <col style="width:111px;">
+                        <col style="width:111px;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">주문일자<br>[주문번호]</th>
+                            <th scope="col">이미지</th>
+                            <th scope="col">상품정보</th>
+                            <th scope="col">수량</th>
+                            <th scope="col">상품구매금액</th>
+                            <th scope="col">주문처리상태</th>
+                        </tr>
+                    </thead>
+                    <tbody class="order-list">
+                        
+                    </tbody>
+                </table>
+
+                <!--
+                <p class="empty-message">주문 내역이 없습니다.</p>
+                -->
+            </div>
+
+
+            <!-- <div class="paging">
+                <a href="#" class="first">first</a>
+                <a href="#" class="prev" id="prev">prev</a>
+
+                <ol class="page-buttons"> -->
+                    <!-- <li class="now-page">
+                        <a href="?page=1" class="this">1</a>
+                    </li> -->
+                <!-- </ol>
+
+                <a href="#" class="next" id="next">next</a>
+                <a href="#" class="last">last</a>
+            </div> -->
+        </div>
+    </div>
+    <script src="/static/js/mypage/order.js"></script>
+    <script  th:inline="javascript">
+        /*<![CDATA[*/
+        var testValue1 = [[${order_status}]];
+            // alert(testValue1);
+        var testValue2 = [[${history_start_date}]];
+            // alert(testValue2);
+        var testValue3 = [[${history_end_date}]];
+            // alert(testValue3);
+        /*]]>*/
+    </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #f1efed;
+}
+
+
+/* img */
+
+.contents {
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+}
+
+.img-scroll  {
+    width: 51.5%;
+
+    float: left;
+    text-align: center;
+}
+
+
+.img-scroll img {
+    width: 100%;
+
+    margin: -80px 0 150px 0;
+}
+
+/* sidebar */
+
+.sidebar {
+    width: 48.5%;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.pd-info {
+    float: left;
+    position: fixed;
+    top: 74px;
+
+    width: calc(48.5% - 20px);
+    height: calc(100vh - 94px);
+
+    margin: 0px 20px 10px 0;
+    padding: 5.5vh 7.2vh;
+
+    overflow-y: scroll;
+
+    border-left: solid 1px #eee;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.pd-name, .pd-price {
+    margin-bottom: 1.5vh;
+}
+
+.pd-name{
+    font-weight: 800;
+    letter-spacing: -0.19px;
+    font-size: 1.3rem;
+}
+
+.pd-price, .more-color-text {
+    font-family: 'Roboto Condensed';
+    font-weight: 400;
+}
+
+.pd-price {
+    font-size: 1.21rem;
+}
+
+.more-color-text {
+    font-size: 0.9375rem;
+}
+
+.more-color {
+    margin-top: 2vh;
+}
+
+
+.more-color img {
+    border-radius:  3px;
+    height: calc(((48.5vw - 15vh - 20px) / 5 - 0.75vh) * 95 / 79);
+}
+
+
+/* btn */
+
+.btn-area1 {
+    display: flex;
+    width: 100%;
+}
+
+
+.add-button {
+    float: left;
+    width: 49.5%;
+    height: 56px;
+
+    padding: 12px 0 7px 0;
+    margin-right: 5px;
+
+    text-align: center;
+    font-weight: 500;
+    
+    color: black;
+    border: 1px solid #333;
+    background-color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background: #666;
+    color: #eee;
+}
+
+.npay-button {  
+    width: 49.5%;
+    height: 56px;
+
+    margin: 0;
+
+    text-align: center;
+
+    background-color: #FFEB00;
+    border: 1px solid #FFEB00;
+    background-position: 50% -35px;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.npay-button > img {
+    height: 40%; 
+    vertical-align: -80%; 
+    border: none;
+}
+
+.buy-now-button {
+    width: 100%;
+    height: 56px;
+
+    padding: 12px 0 7px 0;
+    margin: 6px 0;
+
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    
+    color: white;
+    border: none;
+    background-color: black;
+
+    float: left;
+
+    cursor: pointer;
+}
+
+
+
+.buy-now-button:hover {
+    border: 1px solid #9e9e9e;
+    background: #9e9e9e;
+    color: #fff;
+}
+
+.pro-add {
+    float: left;
+    width: 100%;
+}
+
+.pro-fea, .pro-des, .r-policy {
+    padding: 20px 0 20px 0;
+    border-bottom: 1px solid #333;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.ex1, .ex2, .ex3 {
+    padding-top: 8px;
+    font-size: 15px;
+    line-height: 180%;
+}
+
+.invisible {
+    display: none;
+}
+
+
+/* top btn */
+
+.top {
+    width: 100px;
+    /* display: none; */
+
+    position: fixed;
+    bottom: 30px;
+    padding: 18.5px 5px;
+
+    right: calc(50% - 50px);
+    z-index: 999;
+
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    text-align: center;
+    
+    cursor: pointer;
+}
+
+.top a {
+    text-decoration: none;
+    text-align: center;
+    
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+}

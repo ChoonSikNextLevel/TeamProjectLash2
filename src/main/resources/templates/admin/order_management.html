@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANAGEMENT | ORDER</title>
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/static/js/page_main/js/jquery-1.10.1.min.js" type="text/javascript"></SCRIPT>
+    <script src="/static/js/page_main/js/jquery.nicescroll.min.js" type="text/javascript"></SCRIPT>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
+
+    <link rel="stylesheet" href="/static/css/admin/order_management.css">
+    <link rel="stylesheet" href="/static/css/admin/ng.css">
+    <link rel="stylesheet" href="/static/css/admin/manager/product_change_storage.css">
+
+    <!--datepicker-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+
+<body>
+
+    <div class="overlay"></div>
+
+    <header th:replace="~{fragment/header :: header}"></header>
+
+    <div class="contents">
+        <div class="titleArea">
+            ORDER LIST
+            <!-- <p class="order-status-result" th:text="${order_status}"></p>
+            <p class="history-start-date-result" th:text="${history_start_date}"></p>
+            <p class="history-end-date-result" th:text="${history_end_date}"></p> -->
+        </div>
+
+        <ul class="sideMenu">
+            <h2>Admin</h2>
+            <li><a href="/admin/product/registration">상품등록</a></li>
+            <li><a href="/admin/products">상품관리</a></li>
+            <li><a href="/admin/order/managerpage">주문배송</a></li>
+        </ul>
+
+        <div class="main-content">
+            <div class="orders">
+                <ul class="menu">
+                    <li class="order-all selected">
+                        <a href="#none">주문내역조회</a>
+                    </li>
+                    <!-- <li class="order-cs">
+                        <a href="#none">취소/반품/교환 내역 (0)</a>
+                    </li> -->
+                </ul>
+            </div>
+
+            <form action="/admin/order/managerpage" method="GET" id="search-form">
+                <div class="order-history-head order-search-control">
+
+                    <fieldset class="date-select-box">
+
+                        <div class="state-select">
+                            <select id="order-status" name="order_status">
+                                <option value="all">전체 주문처리상태</option>
+                                <option value="shipped_before">결제완료</option>
+                                <option value="shipped_begin">배송중</option>
+                                <option value="shipped_complete">배송완료</option>
+                                <option value="order_cancel">취소∙교환∙반품</option>
+                                <option class="order-status-hidden" th:value="${order_status}" style="display: none;"></option>
+                            </select>
+                        </div>
+
+                        <span class="period">
+                            <a href="#none" class="btnNormal1" days="00">
+                                <img src="/static/images/btn_img/btn_date1.gif" alt="오늘">
+                            </a>
+                            <a href="#none" class="btnNormal2" days="07">
+                                <img src="/static/images/btn_img/btn_date2.gif" alt="1주일">
+                            </a>
+                            <a href="#none" class="btnNormal3" days="30">
+                                <img src="/static/images/btn_img/btn_date3.gif" alt="1개월">
+                            </a>
+                            <a href="#none" class="btnNormal4" days="90">
+                                <img src="/static/images/btn_img/btn_date4.gif" alt="3개월">
+                            </a>
+                            <a href="#none" class="btnNormal5" days="180">
+                                <img src="/static/images/btn_img/btn_date5.gif" alt="6개월">
+                            </a>
+                        </span>
+
+                        <input id="history_start_date" name="history_start_date" class="history-date date-picker"
+                            readonly="readonly" size="10" value="" type="text">
+                        <input id="history_start_date_hidden" readonly="readonly" size="10"
+                            th:value="${history_start_date}" type="hidden">
+
+                        ~
+                        <input id="history_end_date" name="history_end_date" class="history-date date-picker"
+                            readonly="readonly" size="10" value="" type="text">
+                        <input id="history_end_date_hidden" readonly="readonly" size="10" th:value="${history_end_date}"
+                            type="hidden">
+
+
+                        <input alt="조회" id="order-search-btn" type="image" src="/static/images/lash_btn/btn_search.gif"
+                            onclick="submit();">
+                    </fieldset>
+
+                    <ul>
+                        <li>기본적으로 최근 1개월간의 자료가 조회되며, 기간 검색시 지난 주문내역을 조회하실 수 있습니다.</li>
+                        <!-- <li>주문번호를 클릭하시면 해당 주문에 대한 상세내역을 확인하실 수 있습니다.</li> -->
+                    </ul>
+                </div>
+            </form>
+
+
+            <div class="order-management-table">
+                <div class="title">
+                    <h3>주문 및 배송 관리</h3>
+                </div>
+                <table border="1" summary>
+
+                    <colgroup>
+                        <col style="width:100px;">
+                        <col style="width:200px;">
+                        <col style="width:50px;">
+                        <col style="width:120px;">
+                        <col style="width:auto;">
+                        <col style="width:50px;">
+                        <col style="width:70px;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th scope="col">주문일자<br>[주문번호]</th>
+                            <th scope="col">상품정보</th>
+                            <th scope="col">수량</th>
+                            <th scope="col">상품구매금액</th>
+                            <th scope="col">배송주소</th>
+                            <th scope="col">주문처리상태</th>
+                            <th scope="col">수정하기</th>
+                        </tr>
+                    </thead>
+                    <tbody class="order-list">
+                        <!-- <tr>
+                            <td>2022-11-12</td>
+                            <td>HUNTER C1</td>
+                            <td>1</td>
+                            <td>254,000 원</td>
+                            <td>부산광역시 동래구</td>
+                            <td>
+                                <select id="order-status" name="order-status">
+                                    <option value="shipped_before">결제완료</option>
+                                    <option value="shipped_begin">배송중</option>
+                                    <option value="shipped_complate">배송완료</option>
+                                </select>
+                            </td>
+                            <td><button class="status-update"><i class="fa-solid fa-arrow-up"></i></button></td>
+                        </tr>
+
+                        <tr>
+                            <td>2022-11-12</td>
+                            <td>HUNTER C1</td>
+                            <td>1</td>
+                            <td>254,000 원</td>
+                            <td>부산광역시 동래구</td>
+                            <td>
+                                <select id="order-status" name="order-status">
+                                    <option value="shipped_before">결제완료</option>
+                                    <option value="shipped_begin">배송중</option>
+                                    <option value="shipped_complate">배송완료</option>
+                                    <option value="order_change">취소·교환·반품</option>
+                                </select>
+                            </td>
+                            <td><button class="status-update"><i class="fa-solid fa-arrow-up"></i></button></td>
+                        </tr>
+
+                        <tr>
+                            <td>2022-11-12</td>
+                            <td>HUNTER C1</td>
+                            <td>1</td>
+                            <td>254,000 원</td>
+                            <td>부산광역시 동래구</td>
+                            <td>
+                                <select id="order-status" name="order-status">
+                                    <option value="shipped_before">결제완료</option>
+                                    <option value="shipped_begin">배송중</option>
+                                    <option value="shipped_complate">배송완료</option>
+                                    <option value="order_change">취소·교환·반품</option>
+                                </select>
+                            </td>
+                            <td><button class="status-update"><i class="fa-solid fa-arrow-up"></i></button></td>
+                        </tr> -->
+                    </tbody>
+                </table>
+
+                <!--
+                <p class="empty-message">주문 내역이 없습니다.</p>
+                -->
+            </div>
+
+
+            <!-- <div class="paging">
+                <a href="#" class="first">first</a>
+                <a href="#" class="prev" id="prev">prev</a>
+
+                <ol class="page-buttons"> -->
+                    <!-- <li class="now-page">
+                        <a href="?page=1" class="this">1</a>
+                    </li> -->
+<!--               </ol>
+
+                <a href="#" class="next" id="next">next</a>
+                <a href="#" class="last">last</a>
+            </div> -->
+        </div>
+    </div>
+
+    <script src="/static/js/admin/order_management.js"></script>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var testValue1 = [[${ order_status }]];
+        // alert(testValue1);
+        var testValue2 = [[${ history_start_date }]];
+        // alert(testValue2);
+        var testValue3 = [[${ history_end_date }]];
+        // alert(testValue3);
+        /*]]>*/
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/mypage/user_info_editor.css">
+    <link rel="stylesheet" href="/static/css/mypage/style.css">
+    
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
+    
+    <title>user_info_editor</title>
+</head>
+
+<body>
+    <div class="overlay"></div>
+    
+    <header th:replace="~{fragment/header :: header}"></header>
+    
+    <div class="contents">
+        <div class="titleArea">
+            <h2 style="margin-top: 0px;margin-bottom: 0px;">USER INFO EDITOR</h2>
+        </div>
+        <ul class="sideMenu">
+            <h2>Account</h2>
+            <li><a href="/account/mypage">마이쇼핑</a></li>
+            <li><a href="/account/mypage/order">주문내역조회</a></li>
+            <li><a href="/account/mypage/user">회원정보관리</a></li>
+            <li><a href="/account/mypage/address">배송주소록</a></li>
+        </ul>
+        <div id="modify">
+            <form id="editForm" name="editForm" action="/exec/front/Member/edit/" method="post" target="_self" enctype="multipart/form-data">
+                <div class="xans-element- xans-member xans-member-edit">
+                    <div class="ec-base-table-black typeWrite">
+                        <table border="1" summary>
+                            <colgroup>
+                                <col style="width:150px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        아이디
+                                        <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif"
+                                            alt="필수">
+                                    </th>
+                                    <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;">
+                                        <input id="member_id" name="member_id"
+                                            fw-filter="isFill&amp;isFill&amp;isMin[4]&amp;isMax[16]&amp;isIdentity"
+                                            fw-label="아이디" fw-msg="" class="inputTypeText" placeholder=""
+                                            readonly="readonly" value="" type="text"> (영문소문자/숫자, 4~16자)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        비밀번호
+                                        <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class=""
+                                            alt="필수">
+                                    </th>
+                                    <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        <input id="passwd" name="passwd" fw-filter="isMin[4]&amp;isMax[16]"
+                                            fw-label="비밀번호" fw-msg="" class="inputTypeText" autocomplete="off" maxlength="16"
+                                            value="" type="password"> (영문 대소문자/숫자/특수문자 중 3가지 이상 조합, 8자~16자)
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        비밀번호 확인
+                                        <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif"
+                                            alt="필수">
+                                    </th>
+                                    <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        <input id="user_passwd_confirm" name="user_passwd_confirm"
+                                            fw-filter="isMatch[passwd]" class="inputTypeText" fw-label="비밀번호 확인" fw-msg="비밀번호가 일치하지 않습니다."
+                                            type="password"> <span id="pwConfirmMsg"></span>
+                                    </td>
+                                </tr>
+                                <tr style="display:1">
+                                    <th scope="row" id=""
+                                        style="border-left: solid 1px #fff;border-right: solid 1px #fff;">이름
+                                        <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif"
+                                            alt="필수">
+                                    </th>
+                                    <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        <input id="name" name="name" fw-filter="isFill&amp;isMax[30]" fw-label="이름"
+                                            fw-msg="" class="inputTypeText" placeholder="" maxlength="30"
+                                            readonly="readonly" value="" type="text">
+                                    </td>
+                                </tr>
+                                <!-- <tr class="">
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">주소
+                                        <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class=""
+                                            alt="필수">
+                                    </th>
+                                    <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        <input id="postcode1" name="postcode1" fw-filter="isLengthRange[1][14]"
+                                            fw-label="우편번호1" fw-msg="" class="inputTypeText" placeholder=""
+                                            readonly="readonly" maxlength="14" value="" type="text"> <a href="#none"
+                                            onclick="ZipcodeFinder.Opener.bind('postBtn', 'postcode1', 'postcode2', 'addr1', 'layer', 'ko_KR');"
+                                            id="postBtn"><img
+                                                src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_zipcode.gif"
+                                                alt="우편번호"></a><br>
+                                        <input id="addr1" name="addr1" fw-filter="" fw-label="주소" fw-msg=""
+                                            class="inputTypeText" placeholder="" readonly="readonly" value=""
+                                            type="text"> 기본주소<br>
+                                        <input id="addr2" name="addr2" fw-filter="" fw-label="주소" fw-msg=""
+                                            class="inputTypeText" placeholder="" value="" type="text"> 나머지주소
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        일반전화
+                                        <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif"
+                                            class="displaynone" alt="필수">
+                                    </th>
+                                    <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        <select id="phone1" name="phone[]" fw-filter="isNumber&amp;isNumber"
+                                            fw-label="일반전화" fw-alone="N" fw-msg="">
+                                            <option value="02">02</option>
+                                            <option value="031">031</option>
+                                            <option value="032">032</option>
+                                            <option value="033">033</option>
+                                            <option value="041">041</option>
+                                            <option value="042">042</option>
+                                            <option value="043">043</option>
+                                            <option value="044">044</option>
+                                            <option value="051">051</option>
+                                            <option value="052">052</option>
+                                            <option value="053">053</option>
+                                            <option value="054">054</option>
+                                            <option value="055">055</option>
+                                            <option value="061">061</option>
+                                            <option value="062">062</option>
+                                            <option value="063">063</option>
+                                            <option value="064">064</option>
+                                            <option value="0502">0502</option>
+                                            <option value="0503">0503</option>
+                                            <option value="0504">0504</option>
+                                            <option value="0505">0505</option>
+                                            <option value="0506">0506</option>
+                                            <option value="0507">0507</option>
+                                            <option value="070">070</option>
+                                            <option value="010">010</option>
+                                            <option value="011">011</option>
+                                            <option value="016">016</option>
+                                            <option value="017">017</option>
+                                            <option value="018">018</option>
+                                            <option value="019">019</option>
+                                            <option value="0508">0508</option>
+                                        </select>-<input id="phone2" name="phone[]" maxlength="4"
+                                            fw-filter="isNumber&amp;isNumber" fw-label="일반전화" fw-alone="N" fw-msg=""
+                                            value="" type="text">-<input id="phone3" name="phone[]" maxlength="4"
+                                            fw-filter="isNumber&amp;isNumber" fw-label="일반전화" fw-alone="N" fw-msg=""
+                                            value="" type="text">
+                                    </td>
+                                </tr> -->
+                                <tr class="">
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        휴대전화
+                                        <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" class=""
+                                            alt="필수">
+                                    </th>
+                                    <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        <select id="mobile1" name="mobile[]" fw-filter="isNumber&amp;isFill"
+                                            fw-label="휴대전화" fw-alone="N" fw-msg="" class="inputTypeText">
+                                            <option value="010">010</option>
+                                            <option value="011">011</option>
+                                            <option value="016">016</option>
+                                            <option value="017">017</option>
+                                            <option value="018">018</option>
+                                            <option value="019">019</option>
+                                        </select>-<input id="mobile2" name="mobile[]" maxlength="4"
+                                            fw-filter="isNumber&amp;isFill" fw-label="휴대전화" fw-alone="N" fw-msg=""
+                                            value="" type="text"class="inputTypeText">-<input id="mobile3" name="mobile[]" maxlength="4"
+                                            fw-filter="isNumber&amp;isFill" fw-label="휴대전화" fw-alone="N" fw-msg=""
+                                            value="" type="text"class="inputTypeText">
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        SMS 수신여부
+                                        <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif"
+                                            alt="필수">
+                                    </th>
+                                    <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        <input id="is_sms0" name="is_sms" fw-filter="isFill" fw-label="is_sms" fw-msg=""
+                                            value="T" type="radio"><label for="is_sms0">수신함</label>
+                                        <input id="is_sms1" name="is_sms" fw-filter="isFill" fw-label="is_sms" fw-msg=""
+                                            value="F" type="radio" checked="checked"><label for="is_sms1">수신안함</label>
+                                        <p>쇼핑몰에서 제공하는 유익한 이벤트 소식을 SMS로 받으실 수 있습니다.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        이메일
+                                        <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif"
+                                            alt="필수">
+                                    </th>
+                                    <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        <input id="email1" name="email1" fw-filter="isFill&amp;isEmail" fw-label="이메일"
+                                            fw-alone="N" fw-msg="" value="" type="text"class="inputTypeText"> <span id="emailMsg"></span>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        이메일 수신여부
+                                        <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif"
+                                            alt="필수">
+                                    </th>
+                                    <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        <input id="is_news_mail0" name="is_news_mail" fw-filter="isFill"
+                                            fw-label="is_news_mail" fw-msg="" value="T" type="radio"><label
+                                            for="is_news_mail0">수신함</label>
+                                        <input id="is_news_mail1" name="is_news_mail" fw-filter="isFill"
+                                            fw-label="is_news_mail" fw-msg="" value="F" type="radio"
+                                            checked="checked"><label for="is_news_mail1">수신안함</label>
+                                        <p>쇼핑몰에서 제공하는 유익한 이벤트 소식을 이메일로 받으실 수 있습니다.</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- <h3 class=" ">추가정보</h3>
+                    <div class="ec-base-table-black typeWrite">
+                        <table border="1" summary>
+                            <colgroup>
+                                <col style="width:150px;">
+                                <col style="width:auto;">
+                            </colgroup>
+                            <tbody>
+                                <tr class="">
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">성별
+                                        <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif"
+                                            class="displaynone" alt="필수">
+                                    </th>
+                                    <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        <input id="is_sex0" name="is_sex" fw-filter="" fw-label="성별" fw-msg=""
+                                            0="disabled" value="M" type="radio" class=""><label for="is_sex0">남자</label>
+                                        <input id="is_sex1" name="is_sex" fw-filter="" fw-label="성별" fw-msg=""
+                                            0="disabled" value="F" type="radio" class=""><label for="is_sex1">여자</label>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <th scope="row" style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        생년월일
+                                        <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif"
+                                            class="displaynone" alt="필수">
+                                    </th>
+                                    <td style="border-left: solid 1px #fff;border-right: solid 1px #fff;">
+                                        <input id="birth_year" name="birth_year" fw-filter="" fw-label="생년월일" fw-msg=""
+                                            class="inputTypeText" placeholder="" maxlength="4" value="" type="text"> 년
+                                        <input id="birth_month" name="birth_month" fw-filter="" fw-label="생년월일"
+                                            fw-msg="" class="inputTypeText" placeholder="" maxlength="2" value=""
+                                            type="text"> 월 <input id="birth_day" name="birth_day" fw-filter=""
+                                            fw-label="생년월일" fw-msg="" class="inputTypeText" placeholder="" maxlength="2"
+                                            value="" type="text"> 일 <span class="gIndent20 "><input
+                                                id="is_solar_calendar0" name="is_solar_calendar" fw-filter=""
+                                                fw-label="생년월일" fw-msg="" value="T" type="radio"
+                                                checked="checked"><label for="is_solar_calendar0">양력</label>
+                                            <input id="is_solar_calendar1" name="is_solar_calendar" fw-filter=""
+                                                fw-label="생년월일" fw-msg="" value="F" type="radio"><label
+                                                for="is_solar_calendar1">음력</label></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> -->
+                    <div class="ec-base-button justify">
+                        <span class="gRight">
+                            <a href="/index.html" class="btnType-2B"
+                                style="background-color: #ededed;color:#fff;">취소</a>
+                            <button type="button" class="btnType-2B updateBtn" style="background-color: #ededed;color:#fff;">회원정보수정</button>
+                        </span>
+                        <span class="gLeft">
+                            <button type="button" class="btnType-2B deleteBtn"
+                                style="float:left; background-color: #ededed;color:#fff;">회원탈퇴</button>
+                        </span>
+                    </div>
+                </div>
+                <input type="hidden" name="agree_information_check_display" value="T"><input type="hidden" name="agree_consignment_check_display" value="T">
+            </form>
+        </div>
+    </div>
+    <script src="/static/js/mypage/user_update.js"></script>
+</body>
+
+</html>

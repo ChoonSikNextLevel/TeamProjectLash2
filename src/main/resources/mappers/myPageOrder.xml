@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lash.lashClone.repository.account.MyPageOrderRepository">
+    <resultMap id="member" type="com.lash.lashClone.domain.Member">
+        <result property="member_id" column="member_id"></result>
+        <result property="username" column="username"></result>
+        <result property="oauth_username" column="oauth_username"></result>
+        <result property="password" column="password"></result>
+        <result property="name" column="name"></result>
+        <result property="email" column="email"></result>
+        <result property="phone" column="phone"></result>
+        <result property="provider" column="provider"></result>
+        <result property="role_id" column="role_id"></result>
+        <result property="create_date" column="create_date"></result>
+        <result property="update_date" column="update_date"></result>
+    </resultMap>
+<!--    <resultMap id="order" type="com.lash.lashClone.domain.Order">-->
+<!--        <result property="member_id" column="member_id"></result>-->
+<!--        <result property="order_id" column="order_id"></result>-->
+<!--        <result property="product_id" column="product_id"></result>-->
+<!--        <result property="name" column="name"></result>-->
+<!--        <result property="color_code" column="color_code"></result>-->
+<!--        <result property="price" column="price"></result>-->
+<!--        <result property="product_count" column="product_count"></result>-->
+<!--        <result property="address_id" column="address_id"></result>-->
+<!--        <result property="re_address" column="re_address"></result>-->
+<!--        <result property="re_address_detail" column="re_address_detail"></result>-->
+<!--        <result property="status" column="status"></result>-->
+<!--        <result property="order_date" column="order_date"></result>-->
+<!--        <result property="member" column="member"></result>-->
+<!--        <result property="create_date" column="create_date"></result>-->
+<!--        <result property="update_date" column="update_date"></result>-->
+
+<!--        <collection property="product_imgs" javaType="list" resultMap="product_imgs"></collection>-->
+
+<!--    </resultMap>-->
+    <select id="getMyPageOrder"  parameterType="String" resultType="com.lash.lashClone.domain.Order">
+                SELECT
+                    om.order_date,
+                    om.order_id,
+                    om.product_id,
+                    om.product_count,
+                    om.status,
+                    om.member_id,
+
+                    pm.name,
+                    pm.color_code,
+                    pm.product_id,
+                    pm.price,
+
+                    pimg.product_id,
+                    pimg.img_name
+
+                FROM
+                    order_mst om
+                    LEFT OUTER JOIN product_mst pm
+                    ON(om.product_id = pm.product_id)
+                    LEFT OUTER JOIN product_img pimg
+                    ON(pm.product_id = pimg.product_id)
+                    LEFT OUTER JOIN member_mst mm
+                    ON(mm.member_id = om.member_id)
+                WHERE
+                    mm.username = #{username}
+                GROUP BY om.order_id, om.product_id
+
+                order by om.order_date DESC
+    </select>
+
+</mapper>

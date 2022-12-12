@@ -1,0 +1,234 @@
+
+/*=================준호==================*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, .order-table th, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, button {
+    margin: 0;
+    /* padding: 0; */
+    border: 0;
+    font-size: 100%;
+    
+    vertical-align: baseline;
+}
+html {
+    scrollbar-3dLight-Color: #efefef;
+    scrollbar-arrow-color: #111;
+    scrollbar-base-color: #111;
+    scrollbar-Face-Color: #111;
+    scrollbar-Track-Color: #f2f2f2;
+    scrollbar-DarkShadow-Color: #efefef;
+    scrollbar-Highlight-Color: #efefef;
+    scrollbar-Shadow-Color: #efefef;
+}
+html {
+    width: 100%;
+    height: 926.540px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
+    margin: 0;
+    /* padding: 0; */
+}
+*, input, :before, :after {
+    box-sizing: border-box;
+}
+
+html {
+    display: block;
+}
+*, input, :before, :after {
+    box-sizing: border-box;
+}
+html:after {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: white;
+    z-index: 9;
+}
+*, input, :before, :after {
+    box-sizing: border-box;
+}
+
+::selection {
+    background: #222;
+    color: #fff;
+}
+
+strong {
+    font-weight: 700;
+}
+.btnType-2 {
+    position: relative;
+    z-index: 100;
+    padding: 0 20px;
+    margin: 5px auto 0;
+    line-height: 23px;
+    display: inline-block;
+    border: 1px solid #333;
+    color: #333 !important;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.1px;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+li {
+    text-align: -webkit-match-parent;
+    
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.sideMenu a {
+    width: 100%;
+    float: left;
+    font-size: 12.5px;
+    font-weight: 400;
+    letter-spacing: -0.01px;
+    text-decoration-line:none;
+}
+.sideMenu li {
+    width: 100%;
+    float: left;
+    list-style: none;
+    margin-bottom: 12px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: Cabin,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.55;
+    display: block;
+}
+
+fieldset {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: rgb(192, 192, 192);
+    border-image: initial;
+}
+select {
+    height: 24px;
+    border: 1px solid #ccc;
+    min-width: 120px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0 5px 2px !important;
+}
+
+input, select, textarea {
+    font-size: 100%;
+    font-family: 'roboto','NanumBarunGothic',sans-serif;
+    color: #353535;
+    vertical-align: middle;
+    outline: none;
+}
+.xans-member-edit #addr1, .xans-member-edit #addr2 {
+    width: 280px;
+    margin: 5px 0 0;
+}
+.xans-member-edit #phone2, .xans-member-edit #phone3, .xans-member-edit #mobile2, .xans-member-edit #mobile3 {
+    width: 80px;
+    margin: 0 4px;
+}
+
+.xans-myshop-orderhistoryhead fieldset .fText {
+    width: 72px;
+    height: 22px;
+    margin: 0 0 0 2px;
+    padding: 0 6px;
+    border: 1px solid #d5d5d5;
+    line-height: 22px;
+    font-size: 12px;
+}
+/* input[type=text], input[type=password] {
+    height: 22px;
+    line-height: 20px;
+    border: 1px solid #ccc;
+    color: #353535;
+    font-size: 12px;
+}
+input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
+    height: 55px;
+    font-family: Cabin,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: .9375rem;
+    padding: 0 20px;
+    margin: 0;
+    display: inline-block;
+    border-radius: 0;
+    -webkit-appearance: none;
+    border: 1px solid transparent;
+    background: #ededed;
+    color: #1b1c1c;
+    transition: all .15s linear;
+} */
+option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    font-family: Cabin,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: .9375rem;
+    line-height: 1.7;
+    color: #1b1c1c;
+    background: white;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    position: relative;
+    right: 0;
+    overflow-x: hidden;
+    transition: right .5s cubic-bezier(.25,.46,.45,.94);
+}
+/* body, code {
+    font: 0.75em 'DIN-2014','roboto','NanumBarunGothic',sans-serif;
+    color: #353535;
+    background: #fff;
+} */
+table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+/* ==========주소 등록 공통====================== */

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lash.lashClone.repository.admin.ProductRepository">
+
+    <resultMap id="product_imgs" type="com.lash.lashClone.domain.ProductImg">
+        <result property="id" column="img_id"></result>
+        <result property="product_id" column="product_id"></result>
+        <result property="img_name" column="img_name"></result>
+<!--        <result property="create_date" column="create_date"></result>-->
+<!--        <result property="update_date" column="update_date"></result>-->
+    </resultMap>
+
+    <resultMap id="product" type="com.lash.lashClone.domain.Product">
+        <result property="product_id" column="product_id"></result>
+        <result property="category" column="category"></result>
+        <result property="name" column="name"></result>
+        <result property="color_code" column="color_code"></result>
+        <result property="color" column="color"></result>
+        <result property="price" column="price"></result>
+        <result property="product_features" column="product_features"></result>
+        <result property="description" column="description"></result>
+        <result property="create_date" column="create_date"></result>
+        <result property="update_date" column="update_date"></result>
+        <collection property="product_imgs" javaType="list" resultMap="product_imgs"></collection>
+
+<!--        <result property="product_total_count" column="product_total_count"></result>-->
+    </resultMap>
+
+    <insert
+            id="saveProduct"
+            parameterType="com.lash.lashClone.domain.Product"
+            useGeneratedKeys="true"
+            keyProperty="product_id"
+    >
+
+        INSERT into
+            product_mst
+                (
+                    product_id,
+                    category,
+                    name,
+                    color_code,
+                    color,
+                    price,
+                    product_features,
+                    description,
+                    create_date,
+                    update_date
+                )
+        values
+            (
+                0,
+                #{category},
+                #{name},
+                #{color_code},
+                #{color},
+                #{price},
+                #{product_features},
+                #{description},
+                NOW(),
+                NOW()
+            );
+    </insert>
+
+    <insert id="saveImgs" parameterType="java.util.List">
+        insert into
+            product_img
+        values
+        <foreach item="file" collection="list" separator=",">
+            (
+                0,
+                #{file.product_id},
+                #{file.img_name},
+                now(),
+                now()
+            )
+        </foreach>
+    </insert>
+
+    <select id="productList" parameterType="java.util.HashMap" resultMap="product">
+        SELECT
+            pm.product_id,
+            pm.category,
+            pm.name,
+            pm.price,
+            pm.color_code,
+            pm.color,
+            pm.product_features,
+            pm.description,
+            pim.id as img_id,
+            pim.product_id,
+            pim.img_name,
+            pc.product_total_count
+        FROM
+            product_mst pm
+            LEFT OUTER JOIN product_img pim ON (pim.product_id = pm.product_id)
+            LEFT OUTER JOIN (
+                            select
+                                count(*) as product_total_count
+                            FROM
+                                product_mst pm
+                            where
+                                1 = 1
+                                <if test='category != "all"'>
+                                    and pm.category = #{category}
+                                </if>
+
+                                <if test='searchValue != null || searchValue != ""'>
+                                    AND (pm.name like CONCAT('%', #{searchValue}, '%')
+                                    or pm.color_code like CONCAT('%', #{searchValue}, '%'))
+                                </if>
+                            )
+                            pc ON (1 = 1)
+        where
+        1 = 1
+        <if test='category != "all"'>
+            and pm.category = #{category}
+        </if>
+
+        <if test='searchValue != null || searchValue != ""'>
+            AND (pm.name like CONCAT('%', #{searchValue}, '%')
+            or pm.color_code like CONCAT('%', #{searchValue}, '%'))
+        </if>
+
+
+
+    </select>
+
+
+    <update id="updateProduct" parameterType="com.lash.lashClone.domain.Product">
+        update
+            product_mst
+        set
+            category = #{category},
+            name = #{name},
+            color_code = #{color_code},
+            color = #{color},
+            price = #{price},
+            product_features = #{product_features},
+            description = #{description},
+            update_date = now()
+        where
+            product_id = #{product_id}
+    </update>
+
+    <delete id="deleteImgFiles" parameterType="hashMap">
+        delete
+        from
+            product_img
+        where
+            product_id = #{productId}
+        and img_name in
+            <foreach collection="deleteImgFiles" item="img_name" open="(" separator="," close=")">
+                #{img_name}
+            </foreach>
+
+    </delete>
+
+
+    <select id="getProductImgList" parameterType="Integer" resultMap="product_imgs">
+        select
+            id,
+            product_id,
+            img_name
+        from
+            product_img
+        where
+            product_id = #{product_id}
+
+    </select>
+
+    <delete id="deleteProduct" parameterType="Integer">
+        delete
+        from
+            product_mst
+        where
+            product_id = #{product_id}
+    </delete>
+
+
+
+
+</mapper>

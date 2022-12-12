@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lash.lashClone.repository.account.AccountRepository">
+    <resultMap id="role" type="com.lash.lashClone.domain.Role">
+        <result property="role_id" column="role_id"></result>
+        <result property="role" column="role"></result>
+        <result property="role_name" column="role_name"></result>
+    </resultMap>
+    <resultMap id="member" type="com.lash.lashClone.domain.Member">
+        <result property="member_id" column="member_id"></result>
+        <result property="username" column="username"></result>
+        <result property="oauth_username" column="oauth_username"></result>
+        <result property="password" column="password"></result>
+        <result property="name" column="name"></result>
+        <result property="email" column="email"></result>
+        <result property="phone" column="phone"></result>
+        <result property="provider" column="provider"></result>
+        <result property="role_id" column="role_id"></result>
+        <result property="create_date" column="create_date"></result>
+        <result property="update_date" column="update_date"></result>
+        <collection property="role" resultMap="role"></collection>
+    </resultMap>
+    <insert id="save" parameterType="com.lash.lashClone.domain.Member">
+        insert into
+            member_mst
+        values(
+            0,
+            #{username},
+            #{oauth_username},
+            #{password},
+            #{name},
+            #{email},
+            #{phone},
+            #{provider},
+            1,
+            now(),
+            now()
+        )
+    </insert>
+    <update id="updateMemberOauth2" parameterType="com.lash.lashClone.domain.Member">
+        update
+        member_mst
+        set
+        oauth_username = #{oauth_username},
+        provider = #{provider},
+        update_date = now()
+        where
+        member_id = #{member_id}
+
+    </update>
+    <select id="findUserByUsername" parameterType="String" resultMap="member">
+        select
+        um.member_id,
+        um.username,
+        um.oauth_username,
+        um.password,
+        um.name,
+        um.email,
+        um.phone,
+        um.provider,
+        um.role_id,
+
+        rm.role,
+        rm.role_name,
+
+        um.create_date,
+        um.update_date
+        from
+        member_mst um
+        left outer join role_mst rm on (rm.role_id = um.role_id)
+        where
+        username = #{username}
+    </select>
+</mapper>

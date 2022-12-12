@@ -1,0 +1,114 @@
+@import url('https://fonts.cdnfonts.com/css/nimbus-sans-l');
+
+#contents {margin:60px 0 0 0;}
+#footer {display:none;}
+
+.jd-container {padding:4rem 5%;}
+.journal-detail {display:flex;}
+
+.jd-image-section {width:67%; padding-right:15%;}
+.jd-image-section .jd-image {margin-bottom:1rem;}
+
+.jd-description-section {width:33%;}
+.jd-description-section .jd-title {font-size:2rem; margin-bottom:2rem; font-family:"Nimbus Sans Cond L", "Nimbus Sans L"; font-weight:bold; letter-spacing:-1px;}
+.jd-description-section .jd-content p {margin-bottom:0;}
+.jd-description-section .back {display:block; padding:2rem 0; cursor:pointer; font-family:"Nimbus Sans Cond L", "Nimbus Sans L"; font-weight:400; letter-spacing:-1px;}
+
+@media screen and (max-width: 1023px) {
+    .journal-detail {flex-direction:column;}
+    .jd-image-section,
+    .jd-description-section {width:100%;}
+}
+
+/* ==============header============= */
+
+/* .header-container {
+    width: 100%;
+    padding: 5px 10px 5px 10px;
+    z-index: 999;
+    background-color: aqua;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.site-header.fix.animate {
+    transform: translateY(0);
+}
+.site-header.fix.ready {
+    transition: right .5s cubic-bezier(.25,.46,.45,.94),transform .1s linear;
+}
+section {
+    width: 100%;
+    height: 100%;
+}
+
+.content-container {
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-container li {
+    width: 25%;
+}
+
+
+.contents {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 60px;
+    height: 100%;
+    min-height: 800px;
+    padding-bottom: 0px;
+}
+
+
+.journal-masonry {
+    opacity: 0;
+    transition: opacity 0.7s;
+    padding: 0 8px;
+}
+/* ==============본문============= */
+.jd-container {
+    padding: 4rem 5%;
+}
+.journal-detail {
+    display: flex;
+}
+.xans-product-detail {
+    position: relative;
+    margin: 0 auto;
+}
+.jd-image-section {
+    width: 67%;
+    padding-right: 15%;
+}
+.jd-image-section .jd-image {
+    margin-bottom: 1rem;
+}
+/* ==============본문-오른쪽============= */
+.jd-description-section {
+    width: 33%;
+}
+.jd-description-section .jd-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-family: "Nimbus Sans Cond L", "Nimbus Sans L";
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+.jd-description-section .back {
+    display: block;
+    padding: 2rem 0;
+    cursor: pointer;
+    font-family: "Nimbus Sans Cond L", "Nimbus Sans L";
+    font-weight: 400;
+    letter-spacing: -1px;
+}
+/* ==============부가 폰트============= */
+.jd-content {
+    font-size: 15px;
+}

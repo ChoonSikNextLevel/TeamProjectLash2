@@ -1,0 +1,78 @@
+server:
+  port: 8000
+
+spring:
+  mvc:
+    static-path-pattern: /static/**
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://web-study.cpuvzwftvmcz.ap-northeast-2.rds.amazonaws.com:3306/teamproject-lash-20221104?allowMultiQueries=true
+    username: admin
+    password: 1q2w3e4r
+
+  security:
+    user:
+      name: admin
+      password: 1q2w3e4r
+    oauth2:
+      client:
+        registration:
+          #          google:
+          #            clientId: 68895121061-5o8mgm75kafj2eu84j1e8mh6q6nqhsvv.apps.googleusercontent.com
+          #            clientSecret: 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
+          #            scope:
+          #              - email
+          #              - profile
+          naver:
+            clientId: gXes4a9Sl68qG0nlvTDW
+            clientSecret: Hagv2hLv14
+            scope:
+              - email
+              - name
+            clientName: Naver
+            authorizationGrantType: authorization_code
+            redirectUri: http://localhost:8000/login/oauth2/code/naver
+          kakao:
+            authorization-grant-type: authorization_code
+            client-id: 93a5312d6ce0ac3aa376417dc3f8fd95
+            client-secret: 1Ovd6a9xceJkiKOdhuOYPxE3LEJ8fegu
+            redirect-uri: http://localhost:8000/login/oauth2/code/kakao
+            scope:
+              - profile_nickname
+              - account_email
+            client-authentication-method: POST
+            client-name: Kakao
+          facebook:
+            client-id: 510867220926168
+            client-secret: 2f36039079f7944be17ecdb438d43527
+            redirectUri: http://localhost:8000/login/oauth2/code/facebook
+
+        provider:
+          naver:
+            authorizationUri: https://nid.naver.com/oauth2.0/authorize
+            tokenUri: https://nid.naver.com/oauth2.0/token
+            userInfoUri: https://openapi.naver.com/v1/nid/me
+            userNameAttribute: response
+
+          kakao:
+            authorization-uri: https://kauth.kakao.com/oauth/authorize
+            token-uri: https://kauth.kakao.com/oauth/token
+            user-info-uri: https://kapi.kakao.com/v2/user/me
+            user-name-attribute: properties
+
+
+mybatis:
+  mapper-locations:
+    - /mappers/*.xml
+
+file:
+  path: /home/ubuntu/springboot/project/upload/
+#  path: C:/TeamProjectLash/web/springboot/teamproject-lash-clone-20221104/upload/
+
+

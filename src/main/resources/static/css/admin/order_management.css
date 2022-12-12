@@ -1,0 +1,328 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*---------------------------사이드바--------------------------------------------------------------------*/
+
+.sideMenu {
+    position:fixed; 
+    top:125px; 
+    left:2.5%; 
+    width:10%; 
+    float:Left; 
+}
+
+.sideMenu h2 {
+    font-size:14px; 
+    font-weight:500; 
+    margin-bottom:20px;
+}
+
+.sideMenu ul {
+    width:100%; 
+    float:left; 
+}
+
+.sideMenu li {
+    margin-bottom: 16.45px;
+    font-size: 12.5px;
+    font-weight: 400; 
+}
+
+.sideMenu a:hover {
+    text-decoration: underline;
+}
+
+
+/* contents */
+
+.contents {
+    width: 100%;
+    margin-top: 60px;
+    height: 100%;
+}
+
+.titleArea {
+    width: 100%;
+
+    margin-top: 0px;
+    margin-bottom: 20px;
+    text-align: center;
+
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.main-content { 
+    width: 1000px;
+    margin: 0 auto;
+}
+
+
+/* 주문내역조회 */ 
+
+.history-date {
+    width: 100px;
+    height: 32px;
+    margin: 0 0 0 2px;
+    border: 1px solid #d5d5d5;
+    line-height: 22px;
+    font-size: 12px;
+
+    background: #ededed;
+}
+
+
+/* 내역 조회 메뉴 */
+
+.orders .menu li:first-child {
+    padding-left: 0;
+}
+.orders .menu {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+    padding: 7px 0;
+    border-bottom: 1px dashed #ccc;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.orders .menu li {
+    float: left;
+    padding: 0px 20px;
+    line-height: 16px;
+    border-right: 1px solid #ddd;
+}
+
+.orders .menu li a {
+    display: block;
+    font-size: 14px;
+    color: #999;
+    font-weight: 500;
+}
+
+.orders .menu li.selected a {
+    position: relative;
+    top: -1px;
+    left: -1px;
+    font-weight: bold;
+    color: #111;
+    font-size: 16px;
+}
+
+/* 날짜별 조회 form */
+
+.date-select-box {
+    padding: 10px 10px;
+    border: 2px solid #ddd;
+}
+
+.order-history-head .state-select {
+    display: inline-block;
+    min-width: 150px;
+    padding: 0 12px 0 0;
+    margin: 0 5px 0 2px;
+}
+.order-history-head .state-select select {
+    width: 100%;
+}
+
+.order-history-head fieldset .period {
+    margin: 0 7px;
+}
+.order-history-head fieldset .period a {
+    margin: 0 0 0 -5px;
+}
+.order-history-head fieldset img {
+    vertical-align: middle;
+}
+
+.order-search-control input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
+    height: 32px;
+    padding: 0;
+}
+
+.order-history-head ul {
+    margin: 10px 0 0;
+    color: #939393;
+    line-height: 1.5;
+}
+.order-history-head ul li {
+    padding: 0 0 0 9px;
+    font-size: 15px;
+    background: url(//img.echosting.cafe24.com/skin/base/common/ico_square2.gif) no-repeat 4px 7px;
+}
+
+.date-picker {
+    margin-right: 2px;
+}
+
+/* 주문 및 배송 관리 */
+
+.title {
+    float: left;
+    padding-left: 1%;
+    line-height: 16px;
+    margin: 50px 0 20px;
+    
+    border-left: 2px solid #bbb;
+}
+
+.title h3 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #353535;
+    letter-spacing: -0.1px;
+}
+
+.order-management-table table {
+    width: 100%;
+    border: 1px solid #d7d5d5;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.order-management-table thead th, .order-management-table tbody td {
+    padding: 11px 0 10px;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    
+    color: #353535;
+    vertical-align: middle;
+    font-weight: normal;
+    font-size: 15px;
+    text-align: center;
+    word-break:normal;
+}
+
+.order-management-table tbody td:nth-child(n+2):nth-child(-n+5) {
+    text-align: left;
+    padding-left: 1%;
+}
+
+.order-management-table .empty-message {
+    margin-top: -1px;
+}
+
+.order-management-table .empty-message {
+    border: 1px solid #d7d5d5;
+    padding: 50px 0;
+    
+    color: #757575;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.status-update {
+    background: none;
+    padding: 10px 20px;
+}
+
+
+/* 페이지 이동 */
+
+.paging {
+    width: 100%;
+    float: left;
+    text-align: center;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 15px 0;
+}
+
+.paging a.first {
+    padding-right: 50px;
+    margin-right: 20px;
+    padding-bottom: 2px;
+    color: #bbb;
+    font-weight: 400;
+    font-size: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.paging a.prev {
+    padding-right: 20px;
+    margin-right: 10px;
+    padding-bottom: 2px;
+    color: #777;
+    font-weight: 400;
+    font-size: 12px;
+    border-bottom: 1px solid #aaa;
+}
+
+.paging ol {
+    display: inline-block;
+    vertical-align: top;
+    *display: inline;
+    *zoom: 1;
+    *margin: 0;
+}
+
+.paging li {
+    display: inline-block;
+    font-size: 12px;
+    vertical-align: top;
+    *display: inline;
+    *zoom: 1;
+}
+
+.paging li a.this {
+    color: #111;
+    font-weight: 700;
+}
+
+.paging li a {
+    display: block;
+    width: 33px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #aaa;
+    line-height: 24px;
+    background: #fff;
+}
+
+.paging li a:hover {
+    text-decoration: none;
+    background: #f0f2f2;
+}
+
+.paging a.next {
+    padding-left: 20px;
+    margin-left: 10px;
+    padding-bottom: 2px;
+    color: #777;
+    font-weight: 400;
+    font-size: 12px;
+    border-bottom: 1px solid #aaa;
+}
+
+.paging a.last {
+    padding-left: 50px;
+    margin-left: 20px;
+    padding-bottom: 2px;
+    color: #bbb;
+    font-weight: 400;
+    font-size: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* datepicker 위치 */
+.ui-datepicker {
+    margin-top: -60px;
+}
+
+/* ===취소반품교환 처리상태(준호....)=== */
+.inputTypeText {
+    display: block;
+    white-space: nowrap;
+    width: 100px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url(/web/upload/p2/select-arrow.png) no-repeat 95% 50%;
+    padding: 0 5px 2px !important;
+}

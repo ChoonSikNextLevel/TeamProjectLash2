@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,300italic,400italic,600italic,700italic,800italic%7CRoboto:400,900italic,700italic,500italic,400italic,300italic,100italic,900,700,500,300,100%7CLato:400,100,300,700,900,300italic,400italic,700italic,900italic,100italic%7CRoboto+Condensed:400,700italic,400italic,300italic,700,300%7CRaleway:400,900italic,800italic,700italic,600italic,500italic,400italic,300italic,200italic,100italic,800,900,700,600,500,300,200,100%7CNoto+Sans:400,700,400italic,700italic"
+        rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <link href="//db.onlinewebfonts.com/c/2a2b767302dad0d292294c13d63a0c5f?family=DIN2014-Regular" rel="stylesheet"
+        type="text/css" />
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-{SDK-최신버전}.js"></script>  -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/page_product/product_detail.css">
+
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
+
+    <title>HUNTER C1 | 래쉬 안경테</title>
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <header th:replace="~{fragment/header :: header}"></header>
+
+    <div class="contents">
+        <section class="img-scroll">
+            <!-- <img src="/static/images/product_img/Combination_img/Combination_Hunter_C1.jpg">
+            <img src="/static/images/product_img/Combination_img/Combination_Hunter_C1.jpg">
+            <img src="/static/images/product_img/Combination_img/Combination_Hunter_C1.jpg">
+            <img src="/static/images/product_img/Combination_img/Combination_Hunter_C1.jpg"> -->
+        </section>
+
+        <section class="sidebar">
+            <div class="pd-info">
+                <div class="pd-name"></div>
+                <div class="pd-price"></div>
+                <div class="more-color-text">MORE COLORS</div>
+                <div class="more-color">
+                    <!-- <a href="#none"><img src="/static/images/product_img/Combination_img/Combination_Hunter_C2.jpg"></a>
+                    <a href="#none"><img src="/static/images/product_img/Combination_img/Combination_Hunter_C3.jpg"></a>
+                    <a href="#none"><img src="/static/images/product_img/Combination_img/Combination_Hunter_C4.jpg"></a> -->
+                </div>
+
+
+                <div style="width: 100%; height:1.5vh;"></div>
+                <div class="btn-area1">
+                    <button type="button" class="add-button">ADD TO BAG</button>
+                    <button type="button" class="npay-button"><img
+                            src="/static/images/lash_btn/payment_icon_yellow_medium.png"></button>
+                </div>
+
+                <button type="button" class="buy-now-button">BUY NOW</button>
+
+                <div class="pro-add" id="proAdd">
+                    <div class="pro-fea" id="proFea">PRODUCT FEATURES</div>
+                    <div class="ex1 invisible">
+                        <!-- Material<br>
+                    Acetate&amp;β-Titanium<br>
+                    Front 137mm | Lens Width 46mm | Lens Heigh 38.4mm | Bridge 24mm | Temple 146mm<br>
+                    <br>
+                    소재<br>
+                    아세테이트&amp;메탈<br>
+                    전면길이 137mm | 렌즈가로 46mm | 렌즈세로 38.4mm | 브릿지 24mm | 다리길이 146mm -->
+                    </div>
+
+                    <div class="pro-des" id="proDes">DESCRIPTION</div>
+                    <div class="ex2 invisible">
+                        <!-- <p>Square acetate and titanium combination optical frame. 
+                        It features a heavy keyhole bridge and the details applied on  
+                        temples and end-piece of the front part. 
+                        The frame provides  a comfortable fitting by attaching the nose pad. 
+                        The straight  end piece and the gently falling bottom line are harmonized,  
+                        and create a unique silhouette.<br>
+                    </p><br>
+                    스퀘어 쉐입의 콤비네이션 안경테. 
+                    아세테이트와 베타티타늄을 결합하여 입체적이고, 
+                    부드러운 전면 모서리 엔드피스와 템플에 디테일이 적용되었다. 
+                    코패드를 부착하여 안착되는 착용감을 준다. 
+                    두꺼운 키홀 브릿지, 곧게 뻗은 엔피스와 완만하게 떨어지는 하단  
+                    라인이 조화를 이루며 개성있는 실루엣을 보여준다.<br> -->
+                    </div>
+
+                    <div class="r-policy" id="rPolicy">RETURN POLICY</div>
+                    <div class="ex3 invisible">
+                        1) 배송 지역 : 전국 (도서산간지역 포함)<br>
+                        2) 배송 운임 : 기본 무료 배송 (도서산간지역의 경우 추가 배송비가 부과됩니다.)<br>
+                        3) 배송 기간 : 결제일 기준 2~4일 (영업일 기준이며, 택배사 사정에 의해 지연이 될 수 있습니다.)<br>
+                        4) 해외 배송 기간 : 결제일 기준 4~10일 (영업일 기준이며, 택배사 사정에 의해 지연이 될 수 있습니다.)
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <div class="top" id="top">
+        <a href="#top" style="padding: 15px 5px 15px 5px; border-radius: 5px;">
+            TOP
+        </a>
+    </div>
+
+    <script src="/static/js/page_product/product_detail.js"></script>
+</body>
+
+</html>

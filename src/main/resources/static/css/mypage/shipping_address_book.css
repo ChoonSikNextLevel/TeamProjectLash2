@@ -1,0 +1,174 @@
+
+/*---------------------------본문--------------------------------------------------------------------*/
+/* .site-header {
+    width: 100%;
+    padding: 5px 10px 5px 10px;
+    z-index: 999;
+    background-color: aqua;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.site-header.fix.animate {
+    transform: translateY(0);
+}
+.site-header.fix.ready {
+    transition: right .5s cubic-bezier(.25,.46,.45,.94),transform .1s linear;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+}
+
+.content-container {
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-container li {
+    width: 25%;
+}
+/* .contents {
+    margin: 60px 0 0 5px;
+} */
+
+.contents {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 60px;
+    height: 100%;
+    
+    min-height: 800px;
+    padding-bottom: 0px;
+
+}
+
+.titleArea {
+    width: 100%;
+
+    float: left;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.titleArea h2 {  
+    
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 20px;
+}
+
+
+/*---------------------------사이드바--------------------------------------------------------------------*/
+.sideMenu {position:fixed; top:125px; left:2.5%; width:10%; float:Left; background:none; }
+.sideMenu h2 {font-size:14px; font-weight:500; margin-bottom:20px;}
+.sideMenu ul {width:100%; float:left; }
+.sideMenu li {width:100%; float:left; margin-bottom:16.45px;}
+.sideMenu a {width:100%; float:left; font-size:12.5px; font-weight:400; letter-spacing:-0.01px }
+.sideMenu a:hover {text-decoration:underline}
+    
+@media screen and (max-width: 1280px) {
+.sideMenu {width:100%; float:none; text-align:center; position:static; top:0; left:0;}
+.sideMenu ul {text-align:center;}
+.sideMenu li {float:none; display:inline-block; width:auto; margin-right:8px;}
+.sideMenu a {float:none;}
+.sideMenu a:hover {text-decoration:underline}
+}
+.ec-base-table.typeList table {
+    border-top-color: #d7d5d5;
+}
+.ec-base-table table {
+    position: relative;
+    border: 1px solid #d7d5d5;
+    border-top-color: #fff;
+    color: #fff;
+    line-height: 1.5;
+}
+
+
+.ec-base-table thead th {
+    padding: 11px 0 10px;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    color: #353535;
+    vertical-align: middle;
+    font-weight: normal;
+    font-size: 13px;
+}
+.ec-base-table .center {
+    text-align: center;
+}
+.ec-base-table td {
+    padding: 11px 10px 10px;
+    border-top: 1px solid #ddd;
+    color: #353535;
+    vertical-align: middle;
+    background: #fff;
+    font-size: 13px;
+}
+table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+colgroup {
+    display: table-column-group;
+}
+.ec-base-table.typeList td {
+    padding: 8px 10px 7px;
+    font-size: 10px;
+}
+.gDelete {
+    font-size:10px;
+}
+.gRight {
+    font-size: 10px;
+}
+
+/*----------배송유의사항-----------------*/
+div.ec-base-help {
+    margin: 40px 0;
+}
+.ec-base-help {
+    width: 100%;
+    float: left;
+}
+
+div.ec-base-help > h2, div.ec-base-help > h3 {
+    padding: 9px 0 6px 0;
+    color: #101010;
+    font-size: 15px;
+}
+
+div.ec-base-help ul, div.ec-base-help ol {
+    margin: 15px 0 0 11px;
+}
+
+div.ec-base-help ol .item1 {
+    background-position: -484px 0;
+}
+div.ec-base-help ol li {
+    font-size: 14px;
+    line-height: 1.9em;
+}
+div.ec-base-help li {
+    color: #707070;
+}
+.btnType-1 {
+    position: relative;
+    z-index: 100;
+    padding: 3px 15px;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    color: #777;
+}
+.addressBook-font span {
+    font-size: 13px;
+}

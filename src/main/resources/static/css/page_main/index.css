@@ -1,0 +1,170 @@
+
+.banner {
+    width: 100%;
+    height: 1026px;
+}
+
+.banner>img {
+    width: 100%;
+}
+
+.main-text {
+    width: 100%;
+    height: 59px;
+
+    padding-top: 18px;
+    padding-bottom: 18px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    display: block;
+    justify-content: center;
+    text-align: center;
+
+    line-height: 30px;
+}
+
+/* 슬라이드 자리 */
+/* 슬라이드 테스트 */
+section {
+    height: 600px;
+}
+
+.slide-container {
+    height: 600px;
+    display: flex;
+
+    padding-bottom: 10px;
+}
+
+.slide-container li {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-left: 5px;
+}
+
+.content-row {
+    position: relative;
+
+    width: 500px;
+    height: 100%;
+    padding: 0 5px 0 5px;
+}
+
+.content-row img {
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+
+    border-radius: 5px;
+}
+
+.content-title {
+    position: absolute;
+    bottom: 1rem;
+    left: 1.5rem;
+
+    color: #ffffff;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.content-title p {
+    font-size: 12px;
+}
+
+.content-row:hover {
+    opacity: 0.5;
+    transition: 0.7s ease-in-out;
+}
+
+/*      footer      */
+footer {
+    width: 100%;
+    position: relative;
+}
+
+.footer-sections {
+    width: 100%;
+    height: 321px;
+    background-color: #110d24;
+    padding-top: 0px;
+    padding-right: 10px;
+    box-sizing: border-box;
+}
+
+.footer-section-01 {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-section-01-1 {
+    width: 53%;
+    height: 120px;
+    padding-left: 15px;
+}
+
+.footer-section-01-1>img {
+    width: 350px;
+    height: 140px;
+}
+
+.footer-section-01-2 {
+    color: #ffffff;
+    font-size: 15px;
+    padding: 35px 15px 0 42px;
+}
+
+.footer-section-01-2 {
+    width: 47%;
+    height: 120px;
+    margin-bottom: 16px;
+}
+
+.footer-section-01-2>a {
+    display: block;
+
+    width: 110px;
+    height: 42px;
+
+    padding: 7px 15px 7px 20px;
+    margin-top: 10px;
+
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 7px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 14px;
+}
+
+.footer-section-02 {
+    margin-top: 25px;
+    padding-left: 40px;
+
+    width: 100%;
+    height: 39px;
+}
+
+.footer-section-03 {
+    margin-top: 25px;
+    padding-left: 40px;
+    color: #ffffff;
+    font-size: 10px;
+}
+
+.footer-section-04 {
+    padding-left: 40px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+
+    color: #ffffff;
+    font-size: 10px;
+}

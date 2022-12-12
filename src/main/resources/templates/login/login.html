@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,300italic,400italic,600italic,700italic,800italic%7CRoboto:400,900italic,700italic,500italic,400italic,300italic,100italic,900,700,500,300,100%7CLato:400,100,300,700,900,300italic,400italic,700italic,900italic,100italic%7CRoboto+Condensed:400,700italic,400italic,300italic,700,300%7CRaleway:400,900italic,800italic,700italic,600italic,500italic,400italic,300italic,200italic,100italic,800,900,700,600,500,300,200,100%7CNoto+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/login/login.css">
+
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">    
+    
+    <title>LOG IN | LASH 래쉬 안경테</title>
+
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <header th:replace="~{fragment/header :: header}"></header>
+
+    <div class="login-title">
+        <h4>Login</h4>
+    </div>
+
+    <div class="login-container">
+        
+        <form action="/account/login" method="post">
+            <input type="text" class="login-input" name="username" placeholder="아이디" required>
+            <input type="password" class="login-input" name="password" placeholder="비밀번호" required>
+
+
+            <!-- <div class="find-member">
+                <a href="" style="font-size:11px; font-weight:400;  color:#000; text-decoration:underline;">아이디찾기</a>
+                <a href="" style="font-size:11px; font-weight:400;  color:#000; text-decoration:underline;">비밀번호찾기</a>
+            </div> -->
+
+
+            <button type="submit" class=" registration-button login-button">로그인</button>
+            
+        </form>
+        <button type="button" class="join-button login-button">회원가입</button>
+        <!-- <a href="/account/join" class="join-button">회원가입</a> -->
+        <!-- <button type="button" class="join-button">회원가입</button> -->
+        <button type="button" class="kakao-login-button" onclick="location.href='/oauth2/authorization/kakao'"><img src="/static/images/lash_btn/social-kakao.png" style="width: 11px; height: 11px;"> 카카오 로그인/회원가입</button>
+
+        <div class="sns-login">
+            <a class="facebook-login" href="/oauth2/authorization/facebook">
+                <span class="f-login">f</span>
+                <br>
+                <br>
+                <span style="color: #333;">
+                    페이스북
+                    <br>
+                    로그인
+                </span>
+            </a>
+
+            <a class="naver-login" href="/oauth2/authorization/naver">
+                <span class="n-login">N</span>
+                <br>
+                <br>
+                <span style="color: #333;">
+                    네이버
+                    <br>
+                    로그인
+                </span>
+            </a>
+        </div>
+
+
+
+        <!-- <button type="button" class="find-order-button">비회원주문조회</button> -->
+
+    </div>
+    
+    <script src="/static/js/login/login.js"></script>
+</body>
+</html>

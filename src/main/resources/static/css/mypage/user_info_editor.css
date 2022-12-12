@@ -1,0 +1,242 @@
+/*---------------------------본문--------------------------------------------------------------------*/
+/* .site-header {
+    width: 100%;
+    padding: 5px 10px 5px 10px;
+    z-index: 999;
+    background-color: aqua;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.site-header.fix.animate {
+    transform: translateY(0);
+}
+.site-header.fix.ready {
+    transition: right .5s cubic-bezier(.25,.46,.45,.94),transform .1s linear;
+}
+
+section {
+    width: 100%;
+    height: 100%;
+}
+
+.content-container {
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-container li {
+    width: 25%;
+}
+/* .contents {
+    margin: 60px 0 0 5px;
+} */
+
+.contents {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 60px;
+    height: 100%;
+    
+    min-height: 800px;
+    padding-bottom: 0px;
+
+}
+
+.titleArea {
+    width: 100%;
+
+    float: left;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.titleArea h2 {  
+    
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 20px;
+}
+
+
+/*---------------------------사이드바--------------------------------------------------------------------*/
+.sideMenu {position:fixed; top:125px; left:2.5%; width:10%; float:Left; background:none; }
+.sideMenu h2 {font-size:14px; font-weight:500; margin-bottom:20px;}
+.sideMenu ul {width:100%; float:left; }
+.sideMenu li {width:100%; float:left; margin-bottom:16.45px;}
+.sideMenu a {width:100%; float:left; font-size:12.5px; font-weight:400; letter-spacing:-0.01px }
+.sideMenu a:hover {text-decoration:underline}
+    
+@media screen and (max-width: 1280px) {
+.sideMenu {width:100%; float:none; text-align:center; position:static; top:0; left:0;}
+.sideMenu ul {text-align:center;}
+.sideMenu li {float:none; display:inline-block; width:auto; margin-right:8px;}
+.sideMenu a {float:none;}
+.sideMenu a:hover {text-decoration:underline}
+}
+
+/* section {
+    width: 100%;
+    height: 100%;
+}
+
+.content-container {
+    width: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-container li {
+    width: 25%;
+}
+.contents {
+    margin: 60px 0 0 5px;
+}
+
+.contents {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%;
+    
+    min-height: 800px;
+    padding-bottom: 0px;
+
+} */
+
+/*=======본문===========*/
+#modify {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.ec-base-table-black table {
+    position: relative;
+    border: 1px solid #333;
+    color: #fff;
+    line-height: 1.5;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+element.style {
+    border-left: solid 1px #fff;
+    border-right: solid 1px #fff;
+}
+.ec-base-table-black.typeWrite th {
+    padding: 20px 15px 20px;
+}
+.ec-base-table-black tbody th {
+    padding: 11px 0 10px 18px;
+    border: 1px solid #333;
+    color: #353535;
+    text-align: left;
+    font-weight: normal;
+    font-size: 15px;
+}
+.ec-base-table-black.typeWrite td {
+    padding: 20px 20px 20px;
+}
+.ec-base-table-black td {
+    padding: 11px 10px 10px;
+    border-top: 1px solid #333;
+    color: #353535;
+    vertical-align: middle;
+    background: #fff;
+}
+
+input[type=radio] + label, input[type=checkbox] + label {
+    font-size: 15px;
+    margin: 0 4px 0 2px;
+}
+.xans-member-edit #postcode1, .xans-member-edit #postcode2 {
+    width: 40px;
+    text-align: center;
+}
+
+#modify input {
+    height: 30px !important;
+    border: 1px solid #333 !important;
+}
+.xans-member-edit h3 {
+    margin: 50px 0 10px;
+    font-size: 16px;
+    color: #2e2e2e;
+}
+.ec-base-table-black.typeWrite td {
+    padding: 20px 20px 20px;
+}
+.ec-base-table-black.typeWrite th {
+    padding: 20px 15px 20px;
+}
+.ec-base-button.justify {
+    position: relative;
+}
+.ec-base-button {
+    padding: 10px 0;
+    text-align: center;
+}
+.ec-base-button.justify .gRight {
+    position: absolute;
+    right: 0;
+}
+.ec-base-button .gRight {
+    float: right;
+    text-align: right;
+}
+.xans-member-edit #phone1, .xans-member-edit #mobile1 {
+    width: 60px;
+    margin: 0 4px 0 0;
+}
+#modify select {
+    height: 32px !important;
+    border: 1px solid #333 !important;
+}
+.xans-member-edit #birth_month, .xans-member-edit #marry_month, .xans-member-edit #partner_month, .xans-member-edit #birth_day, .xans-member-edit #marry_day, .xans-member-edit #partner_day {
+    width: 30px;
+    margin: 0 4px 0 0;
+}
+.xans-member-edit #birth_year, .xans-member-edit #marry_year, .xans-member-edit #partner_year {
+    width: 60px;
+    margin: 0 4px 0 0;
+}
+input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
+    height: 55px;
+    font-family: Cabin,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: .9375rem;
+    padding: 0 20px;
+    margin: 0;
+    display: inline-block;
+    border-radius: 0;
+    -webkit-appearance: none;
+    border: 1px solid transparent;
+    background: #ededed;
+    color: #1b1c1c;
+    transition: all .15s linear;
+}
+
+.btnType-2B {
+    position: relative;
+    z-index: 100;
+    padding: 5px 40px;
+    margin: 5px auto 0;
+    margin-bottom: 10px;
+    line-height: 23px;
+    display: inline-block;
+    border: 1px solid #333;
+    color: #333 !important;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.1px;
+}
+
+

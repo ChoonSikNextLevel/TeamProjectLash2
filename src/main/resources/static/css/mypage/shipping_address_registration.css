@@ -1,0 +1,277 @@
+section {
+    width: 100%;
+    height: 100%;
+}
+
+.content-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-container li {
+    width: 25%;
+}
+
+/* .contents {
+    margin: 60px 0 0 5px;
+} */
+
+.contents {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 60px;
+    height: 100%;
+
+    min-height: 800px;
+    padding-bottom: 0px;
+
+}
+
+/*---------------------------사이드바--------------------------------------------------------------------*/
+.sideMenu {
+    position: fixed;
+    top: 125px;
+    left: 2.5%;
+    width: 10%;
+    float: Left;
+    background: none;
+}
+
+.sideMenu h2 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.sideMenu ul {
+    width: 100%;
+    float: left;
+}
+
+.sideMenu li {
+    width: 100%;
+    float: left;
+    margin-bottom: 16.45px;
+}
+
+.sideMenu a {
+    width: 100%;
+    float: left;
+    font-size: 12.5px;
+    font-weight: 400;
+    letter-spacing: -0.01px
+}
+
+.sideMenu a:hover {
+    text-decoration: underline
+}
+
+@media screen and (max-width: 1280px) {
+    .sideMenu {
+        width: 100%;
+        float: none;
+        text-align: center;
+        position: static;
+        top: 0;
+        left: 0;
+    }
+
+    .sideMenu ul {
+        text-align: center;
+    }
+
+    .sideMenu li {
+        float: none;
+        display: inline-block;
+        width: auto;
+        margin-right: 8px;
+    }
+
+    .sideMenu a {
+        float: none;
+    }
+
+    .sideMenu a:hover {
+        text-decoration: underline
+    }
+}
+
+/* =======정보 입력전설명========= */
+.titleArea {
+    width: 100%;
+
+    float: left;
+    border-top: 1px solid #aaa;
+    padding: 20px 0 30px;
+
+}
+
+.titleArea h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+}
+
+.titleArea p {
+    display: inline-block;
+    margin: 0 0 0 6px;
+    padding: 0 0 0 10px;
+    color: #939393;
+}
+
+/* ========정보 입력란========== */
+.ec-base-table table {
+    position: relative;
+    border: 1px solid #d7d5d5;
+    border-top-color: #fff;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.ec-base-table td {
+    padding: 11px 10px 10px;
+    border-top: 1px solid #ddd;
+    color: #353535;
+    vertical-align: middle;
+    background: #fff;
+}
+
+.ec-base-table th:first-child {
+    border-left: 0;
+}
+
+.ec-base-table tbody th {
+    padding: 11px 0 10px 18px;
+    border: 1px solid #ddd;
+    border-bottom-width: 0;
+    color: #353535;
+    text-align: left;
+    font-weight: normal;
+    background-color: #fbfafa;
+}
+
+.ec-base-table.typeWrite td {
+    padding: 8px 10px 7px;
+}
+
+/* 배송지명 성명 박스 크기 */
+#ma_rcv_title,
+#ma_rcv_name {
+    width: 180px;
+}
+
+/* 주소 박스 크기 */
+#sample6_postcode {
+    width: 60px;
+    text-align: center;
+}
+
+#sample6_address,
+#sample6_detailAddress {
+    width: 450px;
+    margin: 5px 0 0;
+}
+
+/* 번호 박스 크기 */
+#ma_rcv_phone1,
+#ma_rcv_mobile_no1 {
+    width: 60px;
+}
+
+#ma_rcv_phone2,
+#ma_rcv_phone3,
+#ma_rcv_mobile_no2,
+#ma_rcv_mobile_no3 {
+    width: 75px;
+    margin: 0 4px;
+}
+
+/* 클릭버튼 */
+.ec-base-table .right {
+    text-align: right;
+}
+
+/* 저장버튼 */
+.ec-base-button {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.ec-base-button .gRight {
+    float: right;
+    text-align: right;
+}
+
+/* 유의사항 */
+div.ec-base-help {
+    margin: 40px 0;
+}
+
+.ec-base-help {
+    width: 100%;
+    float: left;
+}
+
+div.ec-base-help>h2,
+div.ec-base-help>h3 {
+    padding: 9px 0 6px 0;
+    color: #101010;
+    font-size: 15px;
+}
+
+/* =========유의사항 내용=============== */
+div.ec-base-help .inner {
+    padding: 0 0 12px;
+}
+
+div.ec-base-help ul,
+div.ec-base-help ol {
+    margin: 15px 0 0 11px;
+}
+
+div.ec-base-help ol li {
+    font-size: 14px;
+    line-height: 1.9em;
+}
+
+div.ec-base-help li {
+    color: #707070;
+}
+
+div.ec-base-help ol .item1 {
+    background-position: -484px 0;
+}
+
+div.ec-base-help ol .item2 {
+    background-position: -434px -100px;
+}
+
+div.ec-base-help ol .item3 {
+    background-position: -384px -200px;
+}
+
+input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
+    height: 55px;
+    font-family: Cabin, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: .9375rem;
+    padding: 0 20px;
+    margin: 0;
+    display: inline-block;
+    border-radius: 0;
+    -webkit-appearance: none;
+    border: 1px solid transparent;
+    background: #ededed;
+    color: #1b1c1c;
+    transition: all .15s linear;
+}
+.add-button {
+    padding: 0;
+    height: 30px;
+}

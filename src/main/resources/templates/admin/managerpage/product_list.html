@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/admin/manager/style.css">
+    <link rel="stylesheet" href="/static/css/admin/manager/product_list.css">
+    
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
+    
+    <title>product_list</title>
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <header th:replace="~{fragment/header :: header}"></header>
+
+    <div class="contents">
+        <div class="titleArea">
+            <h2>product_list</h2>
+        </div>
+        <ul class="sideMenu">
+            <h2>Admin</h2>
+            <li><a href="/admin/product/registration">상품등록</a></li>
+            <li><a href="/admin/products">상품관리</a></li>
+            <li><a href="/admin/order/managerpage">주문배송</a></li>
+        </ul>
+        <div class="list-area">
+            <div class="list-container">
+                <div class="ec-base-table typeList">
+                    <!-- search -->
+                    <section class="search-list">
+                        <div class="search-area">
+                            <!-- <form action="" method="get"> -->
+                                <div class="search-box2">
+                                    <input type="text" class="search-input" placeholder='"제품명 또는 컬러코드 입력 후 ENTER"'>
+                                    <!-- <td style="border-left: solid 1px #fff; border-right: solid 1px #fff;"> -->
+                                    <select class="category-select">
+                                        <option value="all">ALL</option>
+                                        <option value="metal">METAL</option>
+                                        <option value="acetate">ACETATE</option>
+                                        <option value="combination">COMBINATION</option>
+                                        <option value="refined">REFINED</option>
+                                        <option value="vintage">VINTAGE</option>
+                                        <option value="sunglasses">SUNGLASSES</option>
+                                        <option value="acc">ACC</option>
+                                    </select>
+                                    <!-- </td> -->
+                                </div>
+                            <!-- </form> -->
+                        </div>
+                    </section>
+                    <form class="list-form" action="" method="post">
+                        <input id="__product_id" name="__product_id" value="" type="hidden">
+                        <input id="__product_img" name="__product_img" value="" type="hidden">
+                        <input id="__product_name" name="__product_name" value="" type="hidden">
+                        <input id="__product_code" name="__product_code" value="" type="hidden">
+                        <input id="__product_price" name="__product_price" value="F" type="hidden">
+                        <div class="product-list-table">
+                            <table border="1" summary>
+                                <colgroup>
+                                    <col style="width:120px">
+                                    <col style="width:120px">
+                                    <col style="width:120px">
+                                    <col style="width:120px">
+                                    <col style="width:120px">
+                                    <col style="width:50px">
+                                    <col style="width:50px">
+                                </colgroup>
+                                <thead class="col-th">
+                                    <tr>
+                                        <th scope="col">Product_Id</th>
+                                        <th scope="col">Product_Img</th>
+                                        <th scope="col">Product_Name</th>
+                                        <th scope="col">Color_Code</th>
+                                        <th scope="col">Product_Price</th>
+                                        <th scope="col">수정</th>
+                                        <th scope="col">삭제</th>
+                                    </tr>
+                                </thead>
+
+                                <!-- innerHTML 적용부 -->
+
+                                <tbody class="center">
+                                    <!-- <tr class="xans-record-"> 
+                                        <td>
+                                            ${product.product_id}
+                                            <span>031</span>
+                                        </td>
+                                        <td>
+                                            <img src="/static/images/product_img/${product.productId}">
+                                            <img src="/images/product_img/${img.origin_name}">
+                                        </td>
+                                        <td>
+                                            <span>Name</span>
+                                        </td>
+                                        <td>
+                                            <span>code</span>
+                                        </td>
+                                        <td>
+                                            <span>price</span>
+                                        </td>
+                                        <td>
+                                            <a href="/admin/product/update" class="btnType-1 update-button">수정</a>
+                                        </td>
+                                        <td>
+                                            <a href="modify.html?ma_idx=717" class="btnType-1 delete-button">삭제</a>
+                                        </td> 
+                                    </tr> -->
+                            </table>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/admin/product_list.js"></script>
+</body>
+
+</html>

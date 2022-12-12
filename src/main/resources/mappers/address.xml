@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lash.lashClone.repository.account.AddressRepository">
+    <resultMap id="member" type="com.lash.lashClone.domain.Address">
+        <result property="address_id" column="address_id"></result>
+        <result property="member_id" column="member_id"></result>
+        <result property="address_name" column="address_name"></result>
+        <result property="recipient" column="recipient"></result>
+        <result property="address_number" column="address_number"></result>
+        <result property="address" column="address"></result>
+        <result property="address_detail" column="address_detail"></result>
+        <result property="land_phone" column="land_phone"></result>
+        <result property="mobile_phone" column="mobile_phone"></result>
+        <result property="create_date" column="create_date"></result>
+        <result property="update_date" column="update_date"></result>
+    </resultMap>
+    <resultMap id="address" type="com.lash.lashClone.domain.Address">
+        <result property="address_id" column="address_id"></result>
+        <result property="member_id" column="member_id"></result>
+        <result property="address_name" column="address_name"></result>
+        <result property="recipient" column="recipient"></result>
+        <result property="address_number" column="address_number"></result>
+        <result property="address" column="address"></result>
+        <result property="address_detail" column="address_detail"></result>
+        <result property="land_phone" column="land_phone"></result>
+        <result property="mobile_phone" column="mobile_phone"></result>
+        <result property="create_date" column="create_date"></result>
+        <result property="update_date" column="update_date"></result>
+        <collection property="member_id" javaType="list" resultMap="member"></collection>
+    </resultMap>
+    <insert id="save" parameterType="com.lash.lashClone.domain.Address">
+        INSERT into
+        address_mst
+        values(
+        0,
+        #{member_id},
+        #{address_name},
+        #{recipient},
+        #{address_number},
+        #{address},
+        #{address_detail},
+        #{land_phone},
+        #{mobile_phone},
+        now(),
+        now()
+        )
+    </insert>
+
+    <select id="addressList" parameterType="string" resultType="com.lash.lashClone.domain.Address">
+        SELECT
+        mm.username,
+        mm.member_id,
+
+        am.address_id,
+        am.address_name,
+        am.recipient,
+        am.address_number,
+        am.address,
+        am.address_detail,
+        am.land_phone,
+        am.mobile_phone
+        FROM
+        member_mst mm
+        LEFT OUTER JOIN address_mst am
+        ON(am.member_id = mm.member_id)
+        WHERE
+        mm.username = #{username};
+    </select>
+    <select id="getMemberId" resultType="java.util.Map" parameterType="string">
+        select
+        mm.member_id
+        from
+        member_mst mm
+        where
+        mm.username = #{username}
+    </select>
+    <delete id="deleteAddress" parameterType = "Integer">
+        delete
+        from
+        address_mst
+        where
+        address_id = #{address_id}
+    </delete>
+
+</mapper>

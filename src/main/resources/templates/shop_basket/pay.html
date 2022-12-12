@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/shop_basket/pay.css">
+
+    <link rel="shortcut icon" href="/static/images/Brand_img/favicon_img.ico">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <header th:replace="~{fragment/header :: header}"></header>
+
+    <!-- contents -->
+    <div id="contents">
+        <div class="pay-box">
+            <h2 class="order-text">ORDER</h2>
+            <!-- 결제내역 -->
+            <div class="title">
+                결제내역
+            </div>
+            <table class="product-list-table">
+                <thead>
+                    <tr style="height: 53px;">
+                        <th class="product-list-table-input">
+                            <input type="checkbox" name="product-list-select" onclick="selectAll(this)">
+                        </th>
+                        <th class="product-list-table-image">이미지</th>
+                        <th class="product-list-table-product-info">상품정보</th>
+                        <th class="product-list-table-price">판매가</th>
+                        <th class="product-list-table-count">수량</th>
+                        <th class="product-list-table-reserves">적립금</th>
+                        <th class="product-list-table-shipping-category">배송구분</th>
+                        <th class="product-list-table-shipping-price">배송비</th>
+                        <th class="product-list-table-total-price">합계</th>
+                    </tr>
+                </thead>
+                <tbody class="product-list-tbody">
+
+                </tbody>
+
+                <tfoot>
+
+                </tfoot>
+            </table>
+            <div class="product-list-delete-box">
+                <span>
+                    <strong>선택상품을</strong>
+                    <a class="delete-button">삭제하기</a>
+                </span>
+                <ul>
+                    <li>상품의 옵션 및 수량 변경은 상품상세 또는 장바구니에서 가능합니다.</li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- 주문 정보 -->
+        <div class="order-box">
+            <div class="order-info-title">
+                <h3>주문 정보</h3>
+                <p>
+                    <img src="/static/images/btn_img/ico_required.png" alt="">
+                    필수입력사항
+                </p>
+            </div>
+            <table class="order-info-table">
+                <tbody>
+                    <tr class="tr-order-name">
+                        <th>주문하시는 분
+                            <img src="/static/images/btn_img/ico_required.png" alt="">
+                        </th>
+                        <td>
+                            <input class="input-name" value="" type="text" spellcheck="false">
+                        </td>
+                    </tr>
+                    <tr class="tr-order-address">
+                        <th>주소
+                            <img src="/static/images/btn_img/ico_required.png" alt="">
+                        </th>
+                        <td>
+                            <input class="input-address1" size="6" maxlength="6" type="text">
+                            <a href="#none" class="search-postal-code">
+                                <img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_zipcode.gif"
+                                    onclick=" sample6_execDaumPostcode(this)" name="address1">
+                            </a><br>
+                            <input class="input-address2" type="text" size="40"> <span>기본주소</span>
+                            <input class="input-address3" type="text" size="40"> <span>나머지주소</span>
+                        </td>
+                    </tr>
+                    <!-- <tr class="tr-order-phone">
+                        <th>
+                            일반전화
+                        </th>
+                        <td>
+                            <select class="select-phone">
+                                <option value="02">02</option>
+                                <option value="031">031</option>
+                                <option value="032">032</option>
+                                <option value="033">033</option>
+                                <option value="041">041</option>
+                                <option value="042">042</option>
+                                <option value="043">043</option>
+                                <option value="044">044</option>
+                                <option value="051">051</option>
+                                <option value="052">052</option>
+                                <option value="053">053</option>
+                                <option value="054">054</option>
+                                <option value="055">055</option>
+                                <option value="061">061</option>
+                                <option value="062">062</option>
+                                <option value="063">063</option>
+                                <option value="064">064</option>
+                                <option value="0502">0502</option>
+                                <option value="0503">0503</option>
+                                <option value="0504">0504</option>
+                                <option value="0505">0505</option>
+                                <option value="0506">0506</option>
+                                <option value="0507">0507</option>
+                                <option value="070">070</option>
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                                <option value="0508">0508</option>
+                            </select>
+                            -
+                            <input type="text" class="input-phone2" maxlength="4">
+                            -
+                            <input type="text" class="input-phone3" maxlength="4">
+                        </td>
+                    </tr> -->
+                    <tr class="tr-order-phone">
+                        <th>
+                            휴대전화
+                            <img src="/static/images/btn_img/ico_required.png" alt="">
+                        </th>
+                        <td>
+                            <select class="select-phone">
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                            </select>
+                            -
+                            <input type="text" class="input-phone2" maxlength="4">
+                            -
+                            <input type="text" class="input-phone3" maxlength="4">
+                        </td>
+                    </tr>
+
+                    <tr class="tr-order-email">
+                        <th style="border-bottom: 1px solid #333;">
+                            이메일
+                            <img src="/static/images/btn_img/ico_required.png" alt="필수">
+                        </th>
+                        <td style="border-bottom: 1px solid #333;">
+                            <input type="text" value="" class="input-email">
+                            @
+                            <input type="text">
+                            <select class="select-email" aria-valuetext="naver.com">
+                                <option value="">-이메일 선택-</option>
+                                <option value="naver.com" selected>naver.com</option>
+                                <option value="daum.net">daum.net</option>
+                                <option value="nate.com">nate.com</option>
+                                <option value="hotmail.com">hotmail.com</option>
+                                <option value="yahoo.com">yahoo.com</option>
+                                <option value="empas.com">empas.com</option>
+                                <option value="korea.com">korea.com</option>
+                                <option value="dreamwiz.com">dreamwiz.com</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="">직접입력</option>
+                            </select>
+                            <ul class="email-text">
+                                <li>- 이메일을 통해 주문처리과정을 보내드립니다.</li>
+                                <li>- 이메일 주소란에는 반드시 수신가능한 이메일주소를 입력해 주세요</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+        <!-- 배송 정보 -->
+        <div class="shipping-box">
+
+            <div class="shipping-info-title">
+                <h3>배송 정보</h3>
+                <p>
+                    <img src="/static/images/btn_img/ico_required.png" alt="">
+                    필수입력사항
+                </p>
+            </div>
+            <!-- 배송 정보 table -->
+            <table class="shipping-info-table">
+                <tbody>
+                    <tr class="tr-delivery-destination">
+                        <th>배송지 선택</th>
+                        <td>
+                            <div class="destination-box">
+                                <input id="same-address" name="shipping-address" type="radio">
+                                <label for="same-address">주문 정보와 동일</label>
+                                <input id="new-address" name="shipping-address" type="radio">
+                                <label for="new-address">새로운 배송지</label>
+                                <a href="">주소록보기</a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="tr-receiver-name">
+                        <th>받으시는 분
+                            <img src="/static/images/btn_img/ico_required.png" alt="">
+                        </th>
+                        <td>
+                            <input class="receiver-name-input" value="" type="text" spellcheck="false">
+                        </td>
+                    </tr>
+                    <tr class="tr-receiver-address">
+                        <th>주소
+                            <img src="/static/images/btn_img/ico_required.png">
+                        </th>
+                        <td>
+                            <input class="receiver-address1" placeholder size="6" maxlength="6" type="text">
+
+
+                            <img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_zipcode.gif"
+                                class="search-postal-code" onclick=" sample6_execDaumPostcode(this)" name="address2">
+                            <br>
+
+                            <input class="receiver-address2" type="text" placeholder size="40"> <span>기본주소</span>
+                            <input class="receiver-address3" type="text" placeholder size="40"> <span>나머지주소</span>
+                        </td>
+                    </tr>
+                    <!-- <tr class="tr-receiver-phone">
+                        <th>
+                            일반전화
+                        </th>
+                        <td>
+                            <select class="select-receiver-phone">
+                                <option value="02">02</option>
+                                <option value="031">031</option>
+                                <option value="032">032</option>
+                                <option value="033">033</option>
+                                <option value="041">041</option>
+                                <option value="042">042</option>
+                                <option value="043">043</option>
+                                <option value="044">044</option>
+                                <option value="051">051</option>
+                                <option value="052">052</option>
+                                <option value="053">053</option>
+                                <option value="054">054</option>
+                                <option value="055">055</option>
+                                <option value="061">061</option>
+                                <option value="062">062</option>
+                                <option value="063">063</option>
+                                <option value="064">064</option>
+                                <option value="0502">0502</option>
+                                <option value="0503">0503</option>
+                                <option value="0504">0504</option>
+                                <option value="0505">0505</option>
+                                <option value="0506">0506</option>
+                                <option value="0507">0507</option>
+                                <option value="070">070</option>
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                                <option value="0508">0508</option>
+                            </select>
+                            -
+                            <input type="text" class="input-receiver-phone2" maxlength="4">
+                            -
+                            <input type="text" class="input-receiver-phone3" maxlength="4">
+                        </td>
+                    </tr> -->
+                    <tr class="tr-receiver-phone">
+                        <th>
+                            휴대전화
+                            <img src="/static/images/btn_img/ico_required.png" alt="">
+                        </th>
+                        <td>
+                            <select class="select-receiver-phone">
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                            </select>
+                            -
+                            <input type="text" class="input-receiver-phone2" maxlength="4">
+                            -
+                            <input type="text" class="input-receiver-phone3" maxlength="4">
+                        </td>
+                    </tr>
+                    <tr class="tr-shipping-message">
+                        <th>배송메시지</th>
+                        <td>
+                            <textarea name="" id="" cols="70" maxlength="255" style="resize: none;"></textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!--  -->
+        <div class="total-price-title">
+            <h3>결제 예정 금액</h3>
+        </div>
+        <div class="total-price-box">
+            <div>
+                <table class="total-price-table">
+                    <thead>
+                        <tr>
+                            <th>
+                                <strong>총 주문 금액</strong>
+                                <!-- <a href="">
+                                    <img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/btn_list.gif" alt="">
+                                </a> -->
+                            </th>
+                            <th>
+                                <strong>총</strong>
+                                <strong>할인</strong>
+                                <!-- <strong>+</strong>
+                                <strong>부가결제</strong>
+                                <strong>금액</strong> -->
+                            </th>
+                            <th>
+                                <strong>총 결제예정 금액</strong>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div>
+                                    <strong>KRW</strong>
+                                    <span class="payment-total-price"></span>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <strong>-</strong>
+                                    <strong>
+                                        KRW
+                                        <span>0</span>
+                                    </strong>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <strong>=</strong>
+                                    <strong>
+                                        KRW
+                                        <span class="after-discount"></span>
+                                    </strong>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <table class="total-discount">
+                    <tbody>
+                        <tr class="discount-total-price">
+                            <th>총 할인금액</th>
+                            <td>
+                                KRW
+                                <strong>0</strong>
+                            </td>
+                        </tr>
+                        <!-- <tr class="coupon-discount">
+                            <th>쿠폰할인</th>
+                            <td>
+                                <a href="">
+                                    <img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/btn_total_coupon.gif"
+                                        alt="">
+                                </a>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+                <table class="additional-payment-table">
+                    <tbody>
+                        <!-- <tr>
+                            <th>총 부가결제금액</th>
+                            <td>
+                                KRW
+                                <strong>0</strong>
+                            </td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- 결제수단 -->
+        <div class="payment-method-title">
+            <h3>결제수단</h3>
+        </div>
+        <div class="pay-method-box">
+            <div class="pay-method-box-left">
+                <div class="pay-method-select-box">
+                    <span>
+                        <input id="pay-method-normal" type="radio" name="pay-method" onclick="payMethod(this)" checked>
+                        <label class="pay-method-normal" for="pay-method-normal">일반 결제</label>
+                    </span>
+                    <span>
+                        <input id="pay-method-kakao" type="radio" name="pay-method" onclick="payMethod(this)">
+                        <label class="pay-method-kakao" for="pay-method-kakao"><img
+                                src="/static/images/lash_btn/payment_icon_yellow_small.png"
+                                style="height: 20px; vertical-align: -25%;"></label>
+                    </span>
+                    <span>
+                        <input id="pay-method-toss" type="radio" name="pay-method" onclick="payMethod(this)">
+                        <label class="pay-method-toss" for="pay-method-toss"><img
+                                src="/static/images/lash_btn/logo-toss-pay.png"
+                                style="height: 18px; vertical-align: text-bottom;"></label>
+                    </span>
+                </div>
+
+                <div class="pay-method-detail-box" style=" height:260px">
+                    <!-- 텍스트 추가 -->
+                    <div class="pay-method-normal" name="pay-detail">일반결제</div>
+                    <div class="pay-method-kakao none" name="pay-detail">카카오결제</div>
+                    <div class="pay-method-toss none" name="pay-detail">토스결제 (현재 사용 불가)</div>
+                </div>
+            </div>
+            <div class="pay-method-box-right-container">
+                <div class="pay-method-box-right pay-method-box-right-normal">
+                    <h4>
+                        <span>일반결제 최종 결제금액</span>
+                    </h4>
+                    <p>
+                        <span>KRW <br></span>
+                        <input size="10" readonly="1" value="" type="text" class="payment-total">
+                    </p>
+                    <div class="pay-button-container">
+                        <a class="pay-button">결제하기</a>
+                    </div>
+                    <!-- <div class="total-reserves">
+                        <div class="total-reserves-top">
+                            <div class="total-reserves-top-left">
+                                <strong>총 적립예정금액</strong>
+                            </div>
+                            <div class="total-reserves-top-right">0원</div>
+                        </div>
+                        <div class="total-reserves-bottom">
+                            <div class="total-reserves-bottom-left">상품별 적립금</div>
+                            <div class="total-reserves-bottom-right">0원</div>
+                            <div class="total-reserves-bottom-left">회원 적립금</div>
+                            <div class="total-reserves-bottom-right">0원</div>
+                            <div class="total-reserves-bottom-left">쿠폰 적립금</div>
+                            <div class="total-reserves-bottom-right">0원</div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="pay-method-box-right pay-method-box-right-kakao none">
+                    <h4>
+                        <span>카카오 최종 결제금액</span>
+                    </h4>
+                    <p>
+                        <span>KRW <br></span>
+                        <input size="10" readonly="1" value="" type="text" class="payment-total">
+                    </p>
+                    <div class="pay-button-container">
+                        <a class="pay-button">결제하기</a>
+                    </div>
+                    <!-- <div class="total-reserves">
+                        <div class="total-reserves-top">
+                            <div class="total-reserves-top-left">
+                                <strong>총 적립예정금액</strong>
+                            </div>
+                            <div class="total-reserves-top-right">0원</div>
+                        </div>
+                        <div class="total-reserves-bottom">
+                            <div class="total-reserves-bottom-left">상품별 적립금</div>
+                            <div class="total-reserves-bottom-right">0원</div>
+                            <div class="total-reserves-bottom-left">회원 적립금</div>
+                            <div class="total-reserves-bottom-right">0원</div>
+                            <div class="total-reserves-bottom-left">쿠폰 적립금</div>
+                            <div class="total-reserves-bottom-right">0원</div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="pay-method-box-right pay-method-box-right-toss none">
+                    <h4>
+                        <span>토스 최종 결제금액</span>
+                    </h4>
+                    <p>
+                        <span>KRW <br></span>
+                        <input size="10" readonly="1" value="" type="text" class="payment-total">
+                    </p>
+                    <div class="pay-button-container">
+                        <a class="pay-button">결제하기</a>
+                    </div>
+                    <!-- <div class="total-reserves">
+                        <div class="total-reserves-top">
+                            <div class="total-reserves-top-left">
+                                <strong>총 적립예정금액</strong>
+                            </div>
+                            <div class="total-reserves-top-right">0원</div>
+                        </div>
+                        <div class="total-reserves-bottom">
+                            <div class="total-reserves-bottom-left">상품별 적립금</div>
+                            <div class="total-reserves-bottom-right">0원</div>
+                            <div class="total-reserves-bottom-left">회원 적립금</div>
+                            <div class="total-reserves-bottom-right">0원</div>
+                            <div class="total-reserves-bottom-left">쿠폰 적립금</div>
+                            <div class="total-reserves-bottom-right">0원</div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="top" id="top">
+        <a href="#top" style="padding: 15px 5px 15px 5px; border-radius: 5px;">
+            TOP
+        </a>
+    </div>
+
+    <script src="/static/js/shop_basket/pay.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+        function sample6_execDaumPostcode(inputBox) {
+            new daum.Postcode({
+                oncomplete: function (data) {
+                    var addr = '';
+                    var extraAddr = '';
+
+                    if (data.userSelectedType === 'R') {
+                        addr = data.roadAddress;
+                    } else {
+                        addr = data.jibunAddress;
+                    }
+
+                    if (data.userSelectedType === 'R') {
+                        if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                            extraAddr += data.bname;
+                        }
+                        if (data.buildingName !== '' && data.apartment === 'Y') {
+                            extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                        }
+                        if (extraAddr !== '') {
+                            extraAddr = ' (' + extraAddr + ')';
+                        }
+                    } else {
+                    }
+
+                    if (inputBox.name == 'address1') {
+                        document.querySelector('.input-address1').value = data.zonecode;
+                        document.querySelector(".input-address2").value = addr;
+                        document.querySelector(".input-address3").focus();
+                    } else if (inputBox.name == 'address2') {
+                        document.querySelector('.receiver-address1').value = data.zonecode;
+                        document.querySelector(".receiver-address2").value = addr;
+                        document.querySelector(".receiver-address3").focus();
+                    }
+
+                }
+            }).open();
+
+        }
+    </script>
+</body>
+
+</html>

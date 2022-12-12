@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/shop_basket/MyShoppingBasket.css">
+
+    <title>My Shopping Basket</title>
+</head>
+
+<body>
+    <div class="overlay"></div>
+
+    <header th:replace="~{fragment/header :: header}"></header>
+
+    <!-- contents -->
+    <div id="contents">
+        <div class="basket-package">
+            <div class="info-container">
+                <!-- <div class="information">
+                    <div class="title">혜택정보</div>
+                    <div class="description">
+                        <div class="member">
+                            <p>??? 님은, [일반회원] 회원이십니다.</p>
+                        </div>
+                        <div class="mileage">
+                            <p>가용적립금 : 0원</p>
+                            <p>쿠폰 : 1개</p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <div class="cart-title">
+                <h3 class="cart-title-text">Shopping Cart</h3>
+            </div>
+            <div class="cart-list">
+                <table class="product-table">
+                    <thead>
+                    </thead>
+                    <tbody class="product-table-tbody">
+                        <!-- <tr>
+                            <th class="none"></th>
+                            <td class="cart-image">
+                                <a href="">
+                                    <img src="/static/images/product_img/Combination_img/Combination_Hunter_C1.jpg"
+                                        alt="" style="width: 80px; height: 90px; border-radius: 5px;">
+                                </a>
+                            </td>
+                            <td class="cart-info">
+                                <strong style="font-size:16px; font-weight:500; color:#000;">
+                                    <a href="">
+                                        HUNTER C1
+                                    </a>
+                                </strong>
+                                <div style="margin-top: 10px;">
+                                    <strong style="font-size:14px; font-weight:400; color:#000;">KRW
+                                        <span>245,000</span></strong>
+                                </div>
+                            </td>
+                            <td class="cart-count">
+                                <span>
+                                    <span>
+                                        <button id="minus-button" style="background-color: #fff;">
+                                            <img src="https://lash1.cafe24.com/web/upload/free_design/ico_quantity_down1.png"
+                                                alt="" style="width: 33px; height: 29px;">
+                                        </button>
+                                        <input id="product-count-input" type="text" size="2" value="1">
+                                        <button id="plus-button" style="background-color: #fff;">
+                                            <img src="
+                                            https://lash1.cafe24.com/web/upload/free_design/ico_quantity_up1.png"
+                                                alt="" style="width: 33px; height: 29px;">
+                                        </button>
+                                    </span>
+                                </span>
+                            </td>
+                            <td class="cart-delete" align="right">
+                                <button class="delete-button" style="background-color: #fff;">
+                                    <img src="https://lash1.cafe24.com/web/upload/free_design/ico_close_black.png"
+                                        alt="" style="width: 17px;height: 17px;">
+                                </button>
+                            </td>
+                        </tr> -->
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="empty">
+
+            </div>
+
+
+            <div class="total">
+                <div class="total-text">Total</div>
+                <div class="total-price"></div>
+            </div>
+            <div class="checkout-box">
+                <a href="/payment" class="checkout-button">CHECK&nbsp;OUT</a>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/shop_basket/MyShoppingBasket.js"></script>
+</body>
+
+</html>

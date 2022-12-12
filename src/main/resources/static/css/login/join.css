@@ -1,0 +1,291 @@
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    color: #1b1c1c;
+    font-family: sans-serif;
+    
+    font-weight: 200;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+
+    line-height: 1.7;
+}
+
+
+.join-title {
+    margin: 60px 0 20px 0;
+    text-align: center;
+
+    font-family: 'IBM Plex Sans KR', sans-serif;
+
+    font-size: 14px;
+    font-weight: 400;
+    color: #666;
+}
+
+
+/* 입력 폼 */
+
+.join-area {
+    position: static;
+    display: block;
+
+    width: 600px;
+    margin: 0px auto;
+    
+    font-size: 12px;
+}
+
+
+.join-container {
+    position: relative;
+    display: block;
+    float: left;
+
+    width: 540px;
+    
+    border: 1px solid #999;
+    border-radius: 5px;
+
+    padding: 30px;
+}
+
+.join-required {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    margin-bottom: 24px;
+    font-size: 15px;
+}
+
+.join-required p {
+    margin: 0px;
+}
+
+th {
+    font-weight: 400;
+}
+
+.join-table tbody th {
+    padding-top: 10px;
+    width: 100%;
+    float: left;
+    text-align: left;
+
+    font-size: 14px;
+}
+
+.join-table td {
+    padding: 10px 0 20px 0;
+    width: 100%;
+    float: left;
+
+    font-size: 14px;
+    color: #353535;
+}
+
+.join-table input {
+    width: 98%;
+    height: 30px;
+    border-bottom: 1px solid #333;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+
+    padding: 0 1% 0 1%;
+
+    outline-style: none;
+
+    vertical-align: middle;
+    outline: none;
+
+    background-color: #ededed;
+}
+
+.join-table input:focus {
+    background: #f7f7f7;
+
+    transition: all 0.3s;
+}
+
+.join-table select {
+    margin-right: 4px;
+    width: 150px;
+    height: 32px;
+
+    border-bottom: 1px solid #333;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+
+    padding: 0 5px 2px 5px;
+    background-color: #fff;
+
+    font-size: 100%;
+}
+
+.input-phone {
+    margin: 0 4px;
+    width: 300px !important;
+}
+
+.input-email {
+    width: 300px !important;
+    margin: 0 4px;
+}
+
+
+/* join-acc toggle */
+
+.join-acc {
+    float: left;
+    margin-top: 30px;
+
+    font-weight: 300;
+}
+
+.join-terms {
+    cursor: pointer;
+}
+
+.join-terms-content {
+    font-size: 13px;
+    cursor: default;
+}
+
+.join-terms-content p {
+    margin: 0;
+}
+
+.shopping-information p {
+    margin-bottom: 24px;
+}
+
+.join-toggle {
+    float: left;
+    width: 100%;
+
+    border-bottom: 1px solid #333;
+    line-height: 50px;
+
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+.join-toggle:hover {
+    color: #666;
+}
+
+.invisible{
+    display: none;
+}
+
+/* check-list */
+
+.check-list {
+    list-style: none;
+    padding-left: 0px;
+    float: left;
+    margin: 20px 0 0;
+}
+
+.check-list li {
+    width: 100%;
+    float: left;
+    margin: 5px 0px;
+
+    font-size: 12px;
+}
+
+.check-list li span {
+    float: left;
+    width: 200px;
+}
+
+.check-list li input[type="checkbox"] {
+    height: 15px;
+    vertical-align: middle;
+}
+
+strong {
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.check-all{
+    margin-top: 20px !important;
+}
+
+
+
+
+a {
+    text-decoration: none;
+}
+
+
+.join-button {
+    width: 100%;
+    height: 43.8px;
+
+    padding: 10px 0;
+    margin-top: 30px;
+
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    background-color: #222;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    float: left;
+}
+
+.join-button:hover {
+    color: #0f0f0f;
+}
+
+
+
+
+/* 약관 상세 */
+
+.join-terms-content {
+    float: left;
+    margin: 20px 0;
+
+    max-height: 300px;
+
+    background: white;
+
+    overflow-y: scroll;
+}
+
+.mall-agreement, privacy-required, shopping-information {
+    color: #0f0f0f;
+
+    word-wrap: break-word;
+}
+/* error */
+.account-errors {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    color: #e74c3c;
+}
+
+.errors-invisible {
+    display: none;
+}
+
+.join-table .phoneone {
+    margin: 0 4px;
+    width: 150px;
+    height: 32px;
+}

@@ -1,0 +1,173 @@
+/* html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, .order-table th, article, aside, canvas, details, embed, figure, figcaption, footer, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, button {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    
+    vertical-align: baseline;
+}
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, img {
+    margin: 0;
+    padding: 0;
+} */
+
+html {
+    scrollbar-3dLight-Color: #efefef;
+    scrollbar-arrow-color: #111;
+    scrollbar-base-color: #111;
+    scrollbar-Face-Color: #111;
+    scrollbar-Track-Color: #f2f2f2;
+    scrollbar-DarkShadow-Color: #efefef;
+    scrollbar-Highlight-Color: #efefef;
+    scrollbar-Shadow-Color: #efefef;
+}
+html {
+    width: 100%;
+    height: 926.540px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+html {
+    display: block;
+}
+html:after {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: white;
+    z-index: 9;
+}
+
+*, input, :before, :after {
+    box-sizing: border-box;
+}
+* {
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
+*, input, :before, :after {
+    box-sizing: border-box;
+}
+
+*, input, :before, :after {
+    box-sizing: border-box;
+}
+
+::selection {
+    background: #222;
+    color: #fff;
+}
+select {
+    height: 24px;
+    border: 1px solid #ccc;
+    min-width: 120px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0 5px 2px !important;
+}
+section {
+    width: 100%;
+    height: 100%;
+}
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+li {
+    text-align: -webkit-match-parent;
+    
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Cabin,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.55;
+    display: block;
+}
+
+fieldset {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: rgb(192, 192, 192);
+    border-image: initial;
+}
+option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+body {
+    color: #1b1c1c;
+    font-family: sans-serif;
+    
+    font-weight: 200;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+
+    line-height: 1.7;
+}
+
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    font-family: Cabin,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: .9375rem;
+    line-height: 1.7;
+    color: #1b1c1c;
+    background: white;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    position: relative;
+    right: 0;
+    overflow-x: hidden;
+    transition: right .5s cubic-bezier(.25,.46,.45,.94);
+}
+ul{
+    list-style:none;
+}
