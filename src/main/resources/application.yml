@@ -42,7 +42,7 @@ spring:
             authorization-grant-type: authorization_code
             client-id: 93a5312d6ce0ac3aa376417dc3f8fd95
             client-secret: 1Ovd6a9xceJkiKOdhuOYPxE3LEJ8fegu
-            redirect-uri: http://15.164.41.245/login/oauth2/code/kakao
+            redirect-uri: http://15.164.41.245:8000/login/oauth2/code/kakao
             scope:
               - profile_nickname
               - account_email
