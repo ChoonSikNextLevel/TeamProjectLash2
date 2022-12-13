@@ -37,7 +37,7 @@ spring:
               - name
             clientName: Naver
             authorizationGrantType: authorization_code
-            redirectUri: http://15.164.41.245/login/oauth2/code/naver
+            redirectUri: http://15.164.41.245:8000/login/oauth2/code/naver
           kakao:
             authorization-grant-type: authorization_code
             client-id: 93a5312d6ce0ac3aa376417dc3f8fd95
@@ -51,7 +51,7 @@ spring:
           facebook:
             client-id: 510867220926168
             client-secret: 2f36039079f7944be17ecdb438d43527
-            redirectUri: http://15.164.41.245/login/oauth2/code/facebook
+            redirectUri: http://15.164.41.245:8000/login/oauth2/code/facebook
 
         provider:
           naver:
