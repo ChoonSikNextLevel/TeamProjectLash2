@@ -20,7 +20,7 @@ $(function () {
     $("#history_start_date, #history_end_date").datepicker({
       dateFormat: "yy-mm-dd",
       showOn: "button",
-      buttonImage: "/static/images/btn_img/ico_cal.gif",
+      buttonImage: "/image/images/btn_img/ico_cal.gif",
       buttonImageOnly: true,
       showButtonPanel: true,
       maxDate: "today",
