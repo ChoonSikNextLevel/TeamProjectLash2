@@ -72,7 +72,13 @@ Lash는 안경브랜드 쇼핑사이트 입니다.
 
 저희가 작업한 프로젝트는 기존 변경전 사이트입니다. 
 
-#주요 구현 기능
+# 주요 구현 기능
+
+메인 페이지
+![그림1](https://user-images.githubusercontent.com/93910053/208616516-e20e3fdd-b63f-4780-bf76-1c084986d2cd.png)
+
+로그인 페이지
+![그림2](https://user-images.githubusercontent.com/93910053/208616698-ab97a9ec-e3eb-4d12-a943-a48a9d38ecb6.png)
 
 
  
