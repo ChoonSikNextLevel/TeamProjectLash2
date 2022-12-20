@@ -65,10 +65,13 @@ Lash는 안경브랜드 쇼핑사이트 입니다.
     + OAUTH2
 
 # 프로젝트 배포 및 기존 사이트
-[기존 사이트](https://www.lasheyewear.com/index.html)
-[프로젝트 사이트](https)
++ [기존 사이트](https://www.lasheyewear.com/index.html)
++ [프로젝트 사이트](http://43.200.236.80:8000/index)
+
 프로젝트 진행 과정에서 기존 사이트 변경이 4~5번 정도 발생했습니다.
+
 저희가 작업한 프로젝트는 기존 변경전 사이트입니다. 
 
+#
 
  
