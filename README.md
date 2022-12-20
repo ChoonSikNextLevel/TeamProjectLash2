@@ -73,12 +73,33 @@ Lash는 안경브랜드 쇼핑사이트 입니다.
 저희가 작업한 프로젝트는 기존 변경전 사이트입니다. 
 
 # 주요 구현 기능
+> 메인페이지
 
-메인 페이지
 ![그림1](https://user-images.githubusercontent.com/93910053/208616516-e20e3fdd-b63f-4780-bf76-1c084986d2cd.png)
+<br>
 
-로그인 페이지
+> 로그인페이지
 ![그림2](https://user-images.githubusercontent.com/93910053/208616698-ab97a9ec-e3eb-4d12-a943-a48a9d38ecb6.png)
+<br>
+
+> 회원가입페이지
+![화면 캡처 2022-12-20 172728](https://user-images.githubusercontent.com/93910053/208619297-de19cc27-0e7c-40f9-a335-e9c3b54e1fd2.png)
+<br>
+
+> 회원가입 실패
+![화면 캡처 2022-12-20 174232](https://user-images.githubusercontent.com/93910053/208622592-ec4d0cd5-65f6-4d21-a097-eab42fc9dd2e.png)
+```
+회원가입에서 실패하면 실패한 이유에 대해서 뜨게 되어있습니다.
+```
+<br>
+
+> 소셜 로그인
+![화면 캡처 2022-12-20 175722](https://user-images.githubusercontent.com/93910053/208625794-54b1e8fb-4252-422a-a252-49fb5ab41b83.png)
+```
+소셜 로그인은 네이버,페이스북,카카오로 회원가입하여 사용가능합니다.
+```
+<br>
+
 
 
  
